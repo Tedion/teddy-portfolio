@@ -11,7 +11,7 @@ import Base from '../layouts/Base.astro';
         <a href="/" class="header-name">Teddy Abera Danamo</a>
         <span class="header-status t-mono">
           <span class="status-dot" aria-hidden="true"></span>
-          3 active engagements · Addis Ababa
+          Available for new opportunities · Addis Ababa
         </span>
       </div>
       <nav class="header-nav" aria-label="Primary">
@@ -34,12 +34,12 @@ import Base from '../layouts/Base.astro';
         </h1>
         <div class="hero-anchors reveal">
           <div class="hero-anchor">
-            <span class="hero-anchor-label t-mono">Currently</span>
-            <p>Three concurrent engagements across US enterprise IT, distributed AI infrastructure with a patent-pending platform, and Ethiopian national digital transformation.</p>
+            <span class="hero-anchor-label t-mono">Recently</span>
+            <p>Built a self-hosted multi-agent AI code reviewer (39s per 64-file MR, ~$50/mo vs $5K–15K SaaS), a patent-pending distributed AI platform, and national-scale government infrastructure across three Ethiopian ministries.</p>
           </div>
           <div class="hero-anchor">
-            <span class="hero-anchor-label t-mono">Recently</span>
-            <p>Co-validated 23 of 28 claims on a non-provisional utility patent for distributed deterministic execution framework architecture.</p>
+            <span class="hero-anchor-label t-mono">Highlights</span>
+            <p>Co-validated 23 of 28 claims on a non-provisional utility patent. Zero long-lived credentials AWS architecture. GitLab CI/CD pipelines with Trivy scanning and supply-chain auditing.</p>
           </div>
           <div class="hero-anchor">
             <span class="hero-anchor-label t-mono">Background</span>
@@ -255,7 +255,45 @@ import Base from '../layouts/Base.astro';
             </details>
           </article>
 
-          <!-- 5. Ministry of Revenue ITAS -->
+          <!-- 5. BugBot -->
+          <article class="case-study reveal" id="cs-bugbot">
+            <div class="case-study-header">
+              <div class="case-study-meta">
+                <span class="t-mono">NDIT Solutions</span>
+                <span class="case-study-tag">AI Infrastructure</span>
+              </div>
+              <h3 class="case-study-title">BugBot — Self-Hosted Multi-Agent AI Code Reviewer</h3>
+              <p class="case-study-subtitle">Replaces SaaS code review tools for regulated and cost-sensitive engineering teams</p>
+            </div>
+            <div class="case-study-metrics">
+              <div class="metric">
+                <span class="metric-value t-mono">39 seconds</span>
+                <span class="metric-label">64-file MR review</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">~$50/mo</span>
+                <span class="metric-label">vs $5K–15K SaaS</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">5 agents</span>
+                <span class="metric-label">parallel review</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">Zero</span>
+                <span class="metric-label">code leaves network</span>
+              </div>
+            </div>
+            <details class="case-study-detail">
+              <summary>Read full case study</summary>
+              <div class="case-study-body">
+                <p>Architected and built a self-hosted multi-agent AI code review system that replaces SaaS tools (CodeRabbit, Greptile, Cursor) for regulated and cost-sensitive engineering teams. Five specialized review agents — security, performance, quality, architecture, and testing — run in parallel through an n8n orchestration layer, pulling merge requests from GitLab and serving inference via Groq with Kimi K2 and Llama 3.3 70B models.</p>
+                <p>The system reviews a 64-file merge request end-to-end in 39 seconds at approximately $50/month for 1,000+ reviews, compared to $5K–15K/month for equivalent SaaS tooling. All inference is organization-controlled — no source code leaves the network, making it suitable for regulated environments and clients with strict data sovereignty requirements.</p>
+                <div class="case-study-stack t-mono">GitLab CI · n8n · Groq · Kimi K2 · Llama 3.3 70B · Docker · Self-hosted compute</div>
+              </div>
+            </details>
+          </article>
+
+          <!-- 6. Ministry of Revenue ITAS -->
           <article class="case-study reveal" id="cs-itas">
             <div class="case-study-header">
               <div class="case-study-meta">
