@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+const buildDate = new Date().toISOString().slice(0, 10);
 ---
 <Base>
   <!-- ═══════════════════════════════════════════
@@ -39,11 +40,11 @@ import Base from '../layouts/Base.astro';
           </div>
           <div class="hero-anchor">
             <span class="hero-anchor-label t-mono">Highlights</span>
-            <p>Co-validated 23 of 28 claims on a non-provisional utility patent. Zero long-lived credentials AWS architecture. GitLab CI/CD pipelines with Trivy scanning and supply-chain auditing.</p>
+            <p>Co-validated 23 of 28 claims on a non-provisional utility patent. Zero long-lived credentials AWS architecture. Self-hosted multi-agent AI code review at $50/month vs $5K-15K SaaS. GitLab CI/CD pipelines with Trivy scanning and supply-chain auditing.</p>
           </div>
           <div class="hero-anchor">
             <span class="hero-anchor-label t-mono">Background</span>
-            <p>4+ years production operations across banking, government, and cloud-native platforms. BSc Computer Science, Admas University.</p>
+            <p>4+ years production operations across banking, government, and cloud-native platforms, with patent-validated work in distributed AI infrastructure. BSc Computer Science, Admas University.</p>
           </div>
         </div>
       </div>
@@ -56,6 +57,7 @@ import Base from '../layouts/Base.astro';
       <div class="container">
         <p class="t-subheading reveal">Selected Work</p>
         <h2 id="work-heading" class="t-heading reveal">Case Studies</h2>
+        <p class="t-small reveal" style="margin-top: var(--s-2);">Six projects across distributed AI, government infrastructure, serverless logistics, banking, self-hosted AI tooling, and CI/CD architecture.</p>
 
         <!-- PRIMARY CASE STUDIES -->
         <div class="case-studies">
@@ -145,6 +147,10 @@ import Base from '../layouts/Base.astro';
                 <span class="metric-label">Ethio Telecom + On-prem</span>
               </div>
               <div class="metric">
+                <span class="metric-value t-mono">RAID 1+0</span>
+                <span class="metric-label">XCP-ng HA infra</span>
+              </div>
+              <div class="metric">
                 <span class="metric-value t-mono">National</span>
                 <span class="metric-label">Fayda ID scale, millions</span>
               </div>
@@ -209,6 +215,10 @@ import Base from '../layouts/Base.astro';
                 <span class="metric-value t-mono">100%</span>
                 <span class="metric-label">Terraform IaC</span>
               </div>
+              <div class="metric">
+                <span class="metric-value t-mono">OTel</span>
+                <span class="metric-label">distributed tracing</span>
+              </div>
             </div>
             <details class="case-study-detail">
               <summary>Read full case study</summary>
@@ -244,6 +254,10 @@ import Base from '../layouts/Base.astro';
                 <span class="metric-value t-mono">Keycloak</span>
                 <span class="metric-label">production SSO</span>
               </div>
+              <div class="metric">
+                <span class="metric-value t-mono">4h → 15m</span>
+                <span class="metric-label">deploy reduction</span>
+              </div>
             </div>
             <details class="case-study-detail">
               <summary>Read full case study</summary>
@@ -272,7 +286,7 @@ import Base from '../layouts/Base.astro';
               </div>
               <div class="metric">
                 <span class="metric-value t-mono">~$50/mo</span>
-                <span class="metric-label">vs $5K–15K SaaS</span>
+                <span class="metric-label">vs $5K-15K SaaS</span>
               </div>
               <div class="metric">
                 <span class="metric-value t-mono">5 agents</span>
@@ -286,22 +300,62 @@ import Base from '../layouts/Base.astro';
             <details class="case-study-detail">
               <summary>Read full case study</summary>
               <div class="case-study-body">
-                <p>Architected and built a self-hosted multi-agent AI code review system that replaces SaaS tools (CodeRabbit, Greptile, Cursor) for regulated and cost-sensitive engineering teams. Five specialized review agents - security, performance, quality, architecture, and testing - run in parallel through an n8n orchestration layer, pulling merge requests from GitLab and serving inference via Groq with Kimi K2 and Llama 3.3 70B models.</p>
-                <p>The system reviews a 64-file merge request end-to-end in 39 seconds at approximately $50/month for 1,000+ reviews, compared to $5K–15K/month for equivalent SaaS tooling. All inference is organization-controlled - no source code leaves the network, making it suitable for regulated environments and clients with strict data sovereignty requirements.</p>
-                <div class="case-study-stack t-mono">GitLab CI · n8n · Groq · Kimi K2 · Llama 3.3 70B · Docker · Self-hosted compute</div>
+                <p>Architected and deployed for NDIT Solutions (US IT consulting firm) as an internal code review system replacing SaaS alternatives like CodeRabbit, Greptile, and Cursor. The system reduces external SaaS spend by an order of magnitude while keeping all source code inside NDIT's network, critical for serving regulated clients across cybersecurity, government, and financial services engagements where data sovereignty is a hard requirement.</p>
+                <p>Five specialized review agents - security, performance, code quality, architecture, and testing - run in parallel through an n8n orchestration layer. The system pulls merge requests from GitLab via webhook, splits diffs by file, dispatches them to the agents simultaneously, and aggregates findings into a single ranked review comment posted back to the MR with file-line-level annotations. Inference is served via Groq with Kimi K2 and Llama 3.3 70B models for sub-second per-agent latency.</p>
+                <p>End-to-end latency for a 64-file merge request is 39 seconds from webhook to posted review. Total infrastructure cost is approximately $50/month for 1,000+ reviews, compared to $5,000-$15,000/month for equivalent SaaS tooling at the same volume. Architecture is model-agnostic, allowing NDIT to swap inference providers (Groq, OpenAI, Anthropic, or fully self-hosted Llama/Mistral) without rewriting the orchestration layer.</p>
+                <div class="case-study-stack t-mono">GitLab CI · GitLab Webhook API · n8n workflow orchestration · Groq inference · Kimi K2 · Meta Llama 3.3 70B · Python · Docker · Self-hosted compute · Prometheus</div>
               </div>
             </details>
           </article>
 
-          <!-- 6. Ministry of Revenue ITAS -->
+          <!-- 6. Umoja Booking -->
+          <article class="case-study reveal" id="cs-umoja">
+            <div class="case-study-header">
+              <div class="case-study-meta">
+                <span class="t-mono">NDIT Solutions</span>
+                <span class="case-study-tag">DevOps Infrastructure</span>
+              </div>
+              <h3 class="case-study-title">Umoja Booking - GitLab CI/CD Pipeline Architecture</h3>
+              <p class="case-study-subtitle">Production CI/CD pipelines for a 10-service Docker Compose platform with full security scanning and supply-chain auditing</p>
+            </div>
+            <div class="case-study-metrics">
+              <div class="metric">
+                <span class="metric-value t-mono">10 services</span>
+                <span class="metric-label">orchestrated</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">6 + 4 stages</span>
+                <span class="metric-label">main + AI pipeline</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">5 app builds</span>
+                <span class="metric-label">Trivy scanned</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">Self-hosted</span>
+                <span class="metric-label">GitLab runners</span>
+              </div>
+            </div>
+            <details class="case-study-detail">
+              <summary>Read full case study</summary>
+              <div class="case-study-body">
+                <p>Designed and deployed dual GitLab CI/CD pipelines for the Umoja Booking platform - a 10-service Docker Compose application requiring distinct deployment workflows for application services and AI services. Each pipeline runs on self-hosted GitLab runners with isolated execution environments and full audit logging.</p>
+                <p>The main 6-stage pipeline orchestrates: cleanup, supply-chain audit, parallel Docker builds across 5 services, Trivy vulnerability scanning at the container layer, staging deploy, production deploy. The AI service pipeline runs a 4-stage variant tailored for AI-specific build artifacts and inference dependencies.</p>
+                <p>Built-in disk cleanup automation prevents runner exhaustion. Dependency auditing catches transitive vulnerabilities before they reach production. Trivy scans every container image against known CVE databases with configurable severity thresholds. The result is a pipeline that developers actually trust - verified, audited, and reproducible from a clean state every time.</p>
+                <div class="case-study-stack t-mono">GitLab CI · Self-hosted GitLab Runners · Docker Compose · Trivy · Supply-chain auditing · Parallel build orchestration</div>
+              </div>
+            </details>
+          </article>
+
+          <!-- 7. Ministry of Revenue ITAS -->
           <article class="case-study reveal" id="cs-itas">
             <div class="case-study-header">
               <div class="case-study-meta">
                 <span class="t-mono">Atlas Computer Technology</span>
                 <span class="case-study-tag">Government Systems</span>
               </div>
-              <h3 class="case-study-title">Ministry of Revenue - ITAS Platform</h3>
-              <p class="case-study-subtitle">Clustered tax payment infrastructure for Ethiopia's national revenue system</p>
+              <h3 class="case-study-title">Ministry of Revenue ITAS - National Tax Payment Infrastructure</h3>
+              <p class="case-study-subtitle">Clustered tax payment platform for Ethiopia's Integrated Tax Administration System</p>
             </div>
             <div class="case-study-metrics">
               <div class="metric">
@@ -312,7 +366,24 @@ import Base from '../layouts/Base.astro';
                 <span class="metric-value t-mono">Clustered</span>
                 <span class="metric-label">HA deployment</span>
               </div>
+              <div class="metric">
+                <span class="metric-value t-mono">Vault</span>
+                <span class="metric-label">managed secrets</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">Keycloak</span>
+                <span class="metric-label">SSO</span>
+              </div>
             </div>
+            <details class="case-study-detail">
+              <summary>Read full case study</summary>
+              <div class="case-study-body">
+                <p>Deployed and operated the Kubernetes-orchestrated infrastructure for Ethiopia's Integrated Tax Administration System (ITAS) at the Ministry of Revenue. The platform processes national tax payment workflows with strict regulatory and uptime requirements typical of government revenue systems.</p>
+                <p>The deployment uses Ansible-driven configuration management for reproducible cluster provisioning, GitLab CI for pipeline automation across staging and production environments, and HashiCorp Vault for secrets management - keeping API keys, database credentials, and Keycloak client secrets out of code. Keycloak provides SSO across MoR services with fine-grained RBAC for tax officers, auditors, and administrators.</p>
+                <p>Observability is built on the ELK stack for centralized log aggregation, with Apache Superset and JasperReports providing structured business reporting on payment flows, audit trails, and reconciliation data. End-to-end health checks and resilience policies ensure the platform remains available during tax filing peak windows.</p>
+                <div class="case-study-stack t-mono">Kubernetes · Ansible · GitLab CI · HashiCorp Vault · PostgreSQL · Keycloak · ELK · Apache Superset · JasperReports</div>
+              </div>
+            </details>
           </article>
         </div>
 
@@ -320,10 +391,6 @@ import Base from '../layouts/Base.astro';
         <div class="secondary-studies reveal">
           <h3 class="t-subheading" style="margin-bottom: var(--s-4);">Additional Work</h3>
           <div class="secondary-grid">
-            <div class="secondary-card">
-              <span class="t-mono">Umoja Booking Platform - NDIT Solutions</span>
-              <p>Designed two GitLab CI/CD pipelines with self-hosted runners for a 10-service Docker Compose platform - 6-stage main pipeline (cleanup → supply-chain audit → parallel Docker builds → Trivy vulnerability scan → deploy) and 4-stage AI service pipeline. Automated disk cleanup, dependency auditing, and container image scanning across 5 application services.</p>
-            </div>
             <div class="secondary-card">
               <span class="t-mono">Exponent.ch</span>
               <p>NVIDIA GPU-enabled RKE2 clusters for AI/ML workloads - n8n, Langfuse, LibreChat, ClickHouse with Terraform/Terragrunt and Teleport access.</p>
@@ -404,56 +471,56 @@ import Base from '../layouts/Base.astro';
 
         <ol class="timeline" role="list">
           <li class="timeline-entry reveal">
-            <span class="timeline-date t-mono">Mar 2026 – Present</span>
+            <span class="timeline-date t-mono">Mar 2026 - Present</span>
             <div class="timeline-content">
               <strong>DevOps Engineer</strong> · NDIT Solutions
-              <span class="t-small">Remote contractor - GitLab CI/CD pipelines, Docker Compose orchestration, Trivy security scanning, supply-chain auditing for US client platforms</span>
+              <span class="t-small">Remote contractor for 25-year US IT consulting firm. Architected BugBot (self-hosted multi-agent AI code review, ~1/100th SaaS cost). Designed dual GitLab CI/CD pipelines for 10-service Umoja Booking platform with Trivy scanning and supply-chain auditing. Standardizing DevOps across US client engagements.</span>
             </div>
           </li>
           <li class="timeline-entry reveal">
-            <span class="timeline-date t-mono">Nov 2025 – Present</span>
+            <span class="timeline-date t-mono">Nov 2025 - Present</span>
             <div class="timeline-content">
               <strong>Platform Engineer</strong> · NetrionX Inc.
               <span class="t-small">Distributed AI infrastructure orchestration - patent-pending DDEF platform</span>
             </div>
           </li>
           <li class="timeline-entry reveal">
-            <span class="timeline-date t-mono">Mid-2025 – Present</span>
+            <span class="timeline-date t-mono">Mid-2025 - Present</span>
             <div class="timeline-content">
               <strong>DevOps Engineer</strong> · OpenG2P Ethiopia
               <span class="t-small">National digital transformation - ATI, MoWSA, EDRMC ministries</span>
             </div>
           </li>
           <li class="timeline-entry reveal">
-            <span class="timeline-date t-mono">Apr – Jun 2025</span>
-            <div class="timeline-content">
-              <strong>Senior DevOps Engineer</strong> · Exponent.ch
-              <span class="t-small">GPU-enabled RKE2 clusters, Terraform/Terragrunt, Teleport - Switzerland</span>
-            </div>
-          </li>
-          <li class="timeline-entry reveal">
-            <span class="timeline-date t-mono">Jan – Apr 2025</span>
-            <div class="timeline-content">
-              <strong>Backend & DevOps Engineer</strong> · WeTruck
-              <span class="t-small">Serverless AWS, OIDC federation, OpenTelemetry distributed tracing</span>
-            </div>
-          </li>
-          <li class="timeline-entry reveal">
-            <span class="timeline-date t-mono">Jun – Dec 2025</span>
+            <span class="timeline-date t-mono">Jun - Dec 2025</span>
             <div class="timeline-content">
               <strong>Backend / DevOps Engineer</strong> · Centriweb
               <span class="t-small">International client engagements - Auckland, New Zealand</span>
             </div>
           </li>
           <li class="timeline-entry reveal">
-            <span class="timeline-date t-mono">Feb 2023 – Jun 2025</span>
+            <span class="timeline-date t-mono">Apr - Jun 2025</span>
+            <div class="timeline-content">
+              <strong>Senior DevOps Engineer</strong> · Exponent.ch
+              <span class="t-small">GPU-enabled RKE2 clusters, Terraform/Terragrunt, Teleport - Switzerland</span>
+            </div>
+          </li>
+          <li class="timeline-entry reveal">
+            <span class="timeline-date t-mono">Jan - Apr 2025</span>
+            <div class="timeline-content">
+              <strong>Backend & DevOps Engineer</strong> · WeTruck
+              <span class="t-small">Serverless AWS, OIDC federation, OpenTelemetry distributed tracing</span>
+            </div>
+          </li>
+          <li class="timeline-entry reveal">
+            <span class="timeline-date t-mono">Feb 2023 - Jun 2025</span>
             <div class="timeline-content">
               <strong>DevOps Engineer</strong> · Atlas Computer Technology
               <span class="t-small">Banking infrastructure - Siinqee, Hijra, Wegagen - Kubernetes, Jenkins, Proxmox, ELK</span>
             </div>
           </li>
           <li class="timeline-entry reveal">
-            <span class="timeline-date t-mono">Sep 2021 – Jan 2023</span>
+            <span class="timeline-date t-mono">Sep 2021 - Jan 2023</span>
             <div class="timeline-content">
               <strong>Junior DevOps Engineer</strong> · Atlas Computer Technology
               <span class="t-small">On-premise Proxmox, USSD/mobile banking UAT, monitoring with Zabbix and ELK</span>
@@ -505,7 +572,8 @@ import Base from '../layouts/Base.astro';
       <div class="container container--narrow">
         <p class="t-subheading reveal">Contact</p>
         <h2 id="contact-heading" class="t-heading reveal">Let's work together</h2>
-        <p class="t-body-large reveal" style="margin-bottom: var(--s-8);">Available for infrastructure consulting, platform engineering contracts, and DevOps engagements. Currently based in Addis Ababa with flexible timezone coverage.</p>
+        <p class="t-body-large reveal" style="margin-bottom: var(--s-4);">Available for senior platform / SRE roles, regulated infrastructure consulting, and technical advisory engagements. Full overlap with EU, UK, and US business hours from Addis Ababa (UTC+3). Open to remote full-time or contract.</p>
+        <p class="t-small reveal" style="margin-bottom: var(--s-8);">Most fits start with writing first. Send me a paragraph about what you're building.</p>
 
         <div class="contact-links reveal">
           <a href="mailto:tedionabera@gmail.com" class="contact-link">
@@ -524,6 +592,10 @@ import Base from '../layouts/Base.astro';
             <span class="contact-link-label t-mono">Phone</span>
             <span>+251 910 161 555</span>
           </a>
+          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-label t-mono">CV</span>
+            <span>Download CV (PDF)</span>
+          </a>
         </div>
       </div>
     </section>
@@ -537,7 +609,8 @@ import Base from '../layouts/Base.astro';
       <p class="t-small">Teddy Abera Danamo · Addis Ababa</p>
       <p class="t-mono" style="font-size: 0.75rem; color: var(--c-text-tertiary);">
         Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a> ·
-        <a href="https://github.com/Tedion/teddy-portfolio" target="_blank" rel="noopener noreferrer">Source</a>
+        <a href="https://github.com/Tedion/teddy-portfolio" target="_blank" rel="noopener noreferrer">Source</a> ·
+        Last deploy: {buildDate} · v1.0.0
       </p>
     </div>
   </footer>
