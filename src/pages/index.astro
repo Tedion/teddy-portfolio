@@ -30,7 +30,7 @@ import Base from '../layouts/Base.astro';
       <div class="container container--narrow">
         <p class="t-subheading reveal">DevOps & Platform Engineer</p>
         <h1 id="hero-heading" class="t-display hero-headline reveal">
-          Designing, automating, and operating production infrastructure — from serverless AWS to national-scale government platforms.
+          Designing, automating, and operating production infrastructure - from serverless AWS to national-scale government platforms.
         </h1>
         <div class="hero-anchors reveal">
           <div class="hero-anchor">
@@ -93,7 +93,7 @@ import Base from '../layouts/Base.astro';
               <div class="case-study-body">
                 <p>Architected and deployed a 5-node distributed platform spanning AWS, GCP, and physical edge (Jetson Nano), connected via WireGuard/VXLAN mesh overlay. Built SR-MPLS transport fabric using FRRouting with IS-IS adjacency and BGP AS65001, assigning segment routing labels for deterministic path selection.</p>
                 <p>Configured ONOS SDN controller with OpenFlow 1.3 managing 4 virtual devices and 12 bidirectional links. Integrated autonomous DQN + LSTM decision engine executing 20,820+ decision cycles with 1,015+ autonomous placement actions at 2ms latency and 84.5% average confidence.</p>
-                <p>Built heterogeneous inference pipeline across three GPU tiers — T4 (PyTorch, 150ms), L4 (ONNX-GPU, 90ms), Jetson Nano (TensorRT FP16, 24ms). Built Grafana observability stack with 29 real-time panels covering system metrics, network health, AI engine telemetry, and ONOS topology.</p>
+                <p>Built heterogeneous inference pipeline across three GPU tiers - T4 (PyTorch, 150ms), L4 (ONNX-GPU, 90ms), Jetson Nano (TensorRT FP16, 24ms). Built Grafana observability stack with 29 real-time panels covering system metrics, network health, AI engine telemetry, and ONOS topology.</p>
                 <!-- Architecture diagram placeholder -->
                 <div class="diagram-placeholder" aria-label="NetrionX 5-node mesh architecture diagram">
                   <svg viewBox="0 0 800 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="5-node distributed mesh topology">
@@ -152,7 +152,7 @@ import Base from '../layouts/Base.astro';
             <details class="case-study-detail">
               <summary>Read full case study</summary>
               <div class="case-study-body">
-                <p>Leading DevOps implementation across three Ethiopian government entities — the Agricultural Transformation Institute, Ministry of Women and Social Affairs, and Ethiopian Disaster Risk Management Commission. Deployed production-grade RKE2 clusters with Rancher management, Istio service mesh with mTLS, and Keycloak SSO federation across all entities.</p>
+                <p>Leading DevOps implementation across three Ethiopian government entities - the Agricultural Transformation Institute, Ministry of Women and Social Affairs, and Ethiopian Disaster Risk Management Commission. Deployed production-grade RKE2 clusters with Rancher management, Istio service mesh with mTLS, and Keycloak SSO federation across all entities.</p>
                 <p>Architected dual-infrastructure deployments spanning Ethio Telecom cloud and on-premises environments with HA infrastructure including Hardware RAID 1+0, XCP-ng hypervisor, and WireGuard VPN tunnels. Currently implementing large-scale beneficiary data migration from ODK to OpenG2P for national social protection programs.</p>
                 <div class="diagram-placeholder" aria-label="OpenG2P dual infrastructure topology">
                   <svg viewBox="0 0 800 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dual infrastructure deployment topology">
@@ -214,7 +214,7 @@ import Base from '../layouts/Base.astro';
               <summary>Read full case study</summary>
               <div class="case-study-body">
                 <p>Designed AWS Lambda (Python 3.12) architecture serving REST APIs via FastAPI + Mangum, handling synchronous HTTP traffic and asynchronous job processing across dev/prod environments. Built containerized Lambda deployments using ECR with automated Docker builds and semantic version tagging.</p>
-                <p>Built end-to-end GitHub Actions pipeline with OIDC federation to AWS — zero long-lived credentials — automated testing, Docker build/push to ECR, Lambda deployment, and post-deploy migration triggers. Managed PostgreSQL (RDS) with PostGIS for geospatial queries, Alembic migrations with advisory locking.</p>
+                <p>Built end-to-end GitHub Actions pipeline with OIDC federation to AWS - zero long-lived credentials - automated testing, Docker build/push to ECR, Lambda deployment, and post-deploy migration triggers. Managed PostgreSQL (RDS) with PostGIS for geospatial queries, Alembic migrations with advisory locking.</p>
                 <p>Implemented SQS-driven async job processing with batch item failure reporting. Integrated OpenTelemetry distributed tracing with OTLP HTTP exporter and AWS X-Ray propagation. Implemented JWT authentication, role-based access control, and security headers middleware.</p>
                 <div class="case-study-stack t-mono">Python · FastAPI · AWS Lambda · ECR · RDS PostgreSQL · PostGIS · SQS · S3 · GitHub Actions · OIDC · OpenTelemetry · Docker</div>
               </div>
@@ -262,7 +262,7 @@ import Base from '../layouts/Base.astro';
                 <span class="t-mono">NDIT Solutions</span>
                 <span class="case-study-tag">AI Infrastructure</span>
               </div>
-              <h3 class="case-study-title">BugBot — Self-Hosted Multi-Agent AI Code Reviewer</h3>
+              <h3 class="case-study-title">BugBot - Self-Hosted Multi-Agent AI Code Reviewer</h3>
               <p class="case-study-subtitle">Replaces SaaS code review tools for regulated and cost-sensitive engineering teams</p>
             </div>
             <div class="case-study-metrics">
@@ -286,8 +286,8 @@ import Base from '../layouts/Base.astro';
             <details class="case-study-detail">
               <summary>Read full case study</summary>
               <div class="case-study-body">
-                <p>Architected and built a self-hosted multi-agent AI code review system that replaces SaaS tools (CodeRabbit, Greptile, Cursor) for regulated and cost-sensitive engineering teams. Five specialized review agents — security, performance, quality, architecture, and testing — run in parallel through an n8n orchestration layer, pulling merge requests from GitLab and serving inference via Groq with Kimi K2 and Llama 3.3 70B models.</p>
-                <p>The system reviews a 64-file merge request end-to-end in 39 seconds at approximately $50/month for 1,000+ reviews, compared to $5K–15K/month for equivalent SaaS tooling. All inference is organization-controlled — no source code leaves the network, making it suitable for regulated environments and clients with strict data sovereignty requirements.</p>
+                <p>Architected and built a self-hosted multi-agent AI code review system that replaces SaaS tools (CodeRabbit, Greptile, Cursor) for regulated and cost-sensitive engineering teams. Five specialized review agents - security, performance, quality, architecture, and testing - run in parallel through an n8n orchestration layer, pulling merge requests from GitLab and serving inference via Groq with Kimi K2 and Llama 3.3 70B models.</p>
+                <p>The system reviews a 64-file merge request end-to-end in 39 seconds at approximately $50/month for 1,000+ reviews, compared to $5K–15K/month for equivalent SaaS tooling. All inference is organization-controlled - no source code leaves the network, making it suitable for regulated environments and clients with strict data sovereignty requirements.</p>
                 <div class="case-study-stack t-mono">GitLab CI · n8n · Groq · Kimi K2 · Llama 3.3 70B · Docker · Self-hosted compute</div>
               </div>
             </details>
@@ -300,7 +300,7 @@ import Base from '../layouts/Base.astro';
                 <span class="t-mono">Atlas Computer Technology</span>
                 <span class="case-study-tag">Government Systems</span>
               </div>
-              <h3 class="case-study-title">Ministry of Revenue — ITAS Platform</h3>
+              <h3 class="case-study-title">Ministry of Revenue - ITAS Platform</h3>
               <p class="case-study-subtitle">Clustered tax payment infrastructure for Ethiopia's national revenue system</p>
             </div>
             <div class="case-study-metrics">
@@ -321,12 +321,12 @@ import Base from '../layouts/Base.astro';
           <h3 class="t-subheading" style="margin-bottom: var(--s-4);">Additional Work</h3>
           <div class="secondary-grid">
             <div class="secondary-card">
-              <span class="t-mono">Umoja Booking Platform — NDIT Solutions</span>
-              <p>Designed two GitLab CI/CD pipelines with self-hosted runners for a 10-service Docker Compose platform — 6-stage main pipeline (cleanup → supply-chain audit → parallel Docker builds → Trivy vulnerability scan → deploy) and 4-stage AI service pipeline. Automated disk cleanup, dependency auditing, and container image scanning across 5 application services.</p>
+              <span class="t-mono">Umoja Booking Platform - NDIT Solutions</span>
+              <p>Designed two GitLab CI/CD pipelines with self-hosted runners for a 10-service Docker Compose platform - 6-stage main pipeline (cleanup → supply-chain audit → parallel Docker builds → Trivy vulnerability scan → deploy) and 4-stage AI service pipeline. Automated disk cleanup, dependency auditing, and container image scanning across 5 application services.</p>
             </div>
             <div class="secondary-card">
               <span class="t-mono">Exponent.ch</span>
-              <p>NVIDIA GPU-enabled RKE2 clusters for AI/ML workloads — n8n, Langfuse, LibreChat, ClickHouse with Terraform/Terragrunt and Teleport access.</p>
+              <p>NVIDIA GPU-enabled RKE2 clusters for AI/ML workloads - n8n, Langfuse, LibreChat, ClickHouse with Terraform/Terragrunt and Teleport access.</p>
             </div>
             <div class="secondary-card">
               <span class="t-mono">ODK → OpenG2P Migration</span>
@@ -334,7 +334,7 @@ import Base from '../layouts/Base.astro';
             </div>
             <div class="secondary-card">
               <span class="t-mono">Centriweb (NZ)</span>
-              <p>Backend and DevOps for international clients — Terraform IaC, CI/CD pipeline optimization, cloud resource monitoring for performance and cost.</p>
+              <p>Backend and DevOps for international clients - Terraform IaC, CI/CD pipeline optimization, cloud resource monitoring for performance and cost.</p>
             </div>
           </div>
         </div>
@@ -387,7 +387,7 @@ import Base from '../layouts/Base.astro';
           </div>
           <div class="capability-card reveal">
             <h3>GPU & AI Infrastructure</h3>
-            <p>NVIDIA RuntimeClass on Kubernetes with GPU-aware scheduling across heterogeneous compute — T4 16GB, L4 24GB, Jetson Nano. Inference pipelines spanning PyTorch, ONNX Runtime, and TensorRT FP16. Dynamic workload placement and live migration across GPU tiers.</p>
+            <p>NVIDIA RuntimeClass on Kubernetes with GPU-aware scheduling across heterogeneous compute - T4 16GB, L4 24GB, Jetson Nano. Inference pipelines spanning PyTorch, ONNX Runtime, and TensorRT FP16. Dynamic workload placement and live migration across GPU tiers.</p>
             <span class="capability-tools t-mono">NVIDIA RuntimeClass · PyTorch · ONNX · TensorRT · vLLM · Jetson Nano</span>
           </div>
         </div>
@@ -407,28 +407,28 @@ import Base from '../layouts/Base.astro';
             <span class="timeline-date t-mono">Mar 2026 – Present</span>
             <div class="timeline-content">
               <strong>DevOps Engineer</strong> · NDIT Solutions
-              <span class="t-small">Remote contractor — GitLab CI/CD pipelines, Docker Compose orchestration, Trivy security scanning, supply-chain auditing for US client platforms</span>
+              <span class="t-small">Remote contractor - GitLab CI/CD pipelines, Docker Compose orchestration, Trivy security scanning, supply-chain auditing for US client platforms</span>
             </div>
           </li>
           <li class="timeline-entry reveal">
             <span class="timeline-date t-mono">Nov 2025 – Present</span>
             <div class="timeline-content">
               <strong>Platform Engineer</strong> · NetrionX Inc.
-              <span class="t-small">Distributed AI infrastructure orchestration — patent-pending DDEF platform</span>
+              <span class="t-small">Distributed AI infrastructure orchestration - patent-pending DDEF platform</span>
             </div>
           </li>
           <li class="timeline-entry reveal">
             <span class="timeline-date t-mono">Mid-2025 – Present</span>
             <div class="timeline-content">
               <strong>DevOps Engineer</strong> · OpenG2P Ethiopia
-              <span class="t-small">National digital transformation — ATI, MoWSA, EDRMC ministries</span>
+              <span class="t-small">National digital transformation - ATI, MoWSA, EDRMC ministries</span>
             </div>
           </li>
           <li class="timeline-entry reveal">
             <span class="timeline-date t-mono">Apr – Jun 2025</span>
             <div class="timeline-content">
               <strong>Senior DevOps Engineer</strong> · Exponent.ch
-              <span class="t-small">GPU-enabled RKE2 clusters, Terraform/Terragrunt, Teleport — Switzerland</span>
+              <span class="t-small">GPU-enabled RKE2 clusters, Terraform/Terragrunt, Teleport - Switzerland</span>
             </div>
           </li>
           <li class="timeline-entry reveal">
@@ -442,14 +442,14 @@ import Base from '../layouts/Base.astro';
             <span class="timeline-date t-mono">Jun – Dec 2025</span>
             <div class="timeline-content">
               <strong>Backend / DevOps Engineer</strong> · Centriweb
-              <span class="t-small">International client engagements — Auckland, New Zealand</span>
+              <span class="t-small">International client engagements - Auckland, New Zealand</span>
             </div>
           </li>
           <li class="timeline-entry reveal">
             <span class="timeline-date t-mono">Feb 2023 – Jun 2025</span>
             <div class="timeline-content">
               <strong>DevOps Engineer</strong> · Atlas Computer Technology
-              <span class="t-small">Banking infrastructure — Siinqee, Hijra, Wegagen — Kubernetes, Jenkins, Proxmox, ELK</span>
+              <span class="t-small">Banking infrastructure - Siinqee, Hijra, Wegagen - Kubernetes, Jenkins, Proxmox, ELK</span>
             </div>
           </li>
           <li class="timeline-entry reveal">
@@ -479,11 +479,11 @@ import Base from '../layouts/Base.astro';
         <div class="certifications reveal">
           <h3 class="t-subheading" style="margin-bottom: var(--s-3);">Certifications</h3>
           <ul class="cert-list t-small">
-            <li>Advanced Kubernetes — LinkedIn Learning, Apr 2025</li>
-            <li>Advanced Terraform — LinkedIn Learning, Mar 2025</li>
-            <li>Build a CI/CD Pipeline — LinkedIn Learning, Mar 2025</li>
-            <li>DevOps Foundations: Site Reliability Engineering — LinkedIn Learning, Mar 2025</li>
-            <li>Running Kubernetes on AWS / EKS — LinkedIn Learning, Mar 2025</li>
+            <li>Advanced Kubernetes - LinkedIn Learning, Apr 2025</li>
+            <li>Advanced Terraform - LinkedIn Learning, Mar 2025</li>
+            <li>Build a CI/CD Pipeline - LinkedIn Learning, Mar 2025</li>
+            <li>DevOps Foundations: Site Reliability Engineering - LinkedIn Learning, Mar 2025</li>
+            <li>Running Kubernetes on AWS / EKS - LinkedIn Learning, Mar 2025</li>
             <li>Linux Fundamentals Bootcamp</li>
             <li>NGINX Web Server from Scratch</li>
           </ul>
