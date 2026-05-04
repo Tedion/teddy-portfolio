@@ -1,0 +1,1014 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base>
+  <!-- ═══════════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="header-identity">
+        <a href="/" class="header-name">Teddy Abera Danamo</a>
+        <span class="header-status t-mono">
+          <span class="status-dot" aria-hidden="true"></span>
+          3 active engagements · Addis Ababa
+        </span>
+      </div>
+      <nav class="header-nav" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
+    <section class="hero section" aria-labelledby="hero-heading">
+      <div class="container container--narrow">
+        <p class="t-subheading reveal">DevOps & Platform Engineer</p>
+        <h1 id="hero-heading" class="t-display hero-headline reveal">
+          Designing, automating, and operating production infrastructure — from serverless AWS to national-scale government platforms.
+        </h1>
+        <div class="hero-anchors reveal">
+          <div class="hero-anchor">
+            <span class="hero-anchor-label t-mono">Currently</span>
+            <p>Three concurrent engagements across US enterprise IT, distributed AI infrastructure with a patent-pending platform, and Ethiopian national digital transformation.</p>
+          </div>
+          <div class="hero-anchor">
+            <span class="hero-anchor-label t-mono">Recently</span>
+            <p>Co-validated 23 of 28 claims on a non-provisional utility patent for distributed deterministic execution framework architecture.</p>
+          </div>
+          <div class="hero-anchor">
+            <span class="hero-anchor-label t-mono">Background</span>
+            <p>4+ years production operations across banking, government, and cloud-native platforms. BSc Computer Science, Admas University.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SELECTED WORK
+    ═══════════════════════════════════════════ -->
+    <section id="work" class="section" aria-labelledby="work-heading">
+      <div class="container">
+        <p class="t-subheading reveal">Selected Work</p>
+        <h2 id="work-heading" class="t-heading reveal">Case Studies</h2>
+
+        <!-- PRIMARY CASE STUDIES -->
+        <div class="case-studies">
+
+          <!-- 1. NetrionX -->
+          <article class="case-study reveal" id="cs-netrionx">
+            <div class="case-study-header">
+              <div class="case-study-meta">
+                <span class="t-mono">Nov 2025 – Present</span>
+                <span class="case-study-tag">Platform Engineering</span>
+              </div>
+              <h3 class="case-study-title">NetrionX DDEF Platform</h3>
+              <p class="case-study-subtitle">Distributed AI-driven infrastructure orchestration with patent-validated architecture</p>
+            </div>
+            <div class="case-study-metrics">
+              <div class="metric">
+                <span class="metric-value t-mono">5 nodes</span>
+                <span class="metric-label">AWS + GCP + Edge</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">11.6ms</span>
+                <span class="metric-label">avg RTT, 0.35ms jitter</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">23/28</span>
+                <span class="metric-label">patent claims validated</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">20,820+</span>
+                <span class="metric-label">AI decision cycles</span>
+              </div>
+            </div>
+            <details class="case-study-detail">
+              <summary>Read full case study</summary>
+              <div class="case-study-body">
+                <p>Architected and deployed a 5-node distributed platform spanning AWS, GCP, and physical edge (Jetson Nano), connected via WireGuard/VXLAN mesh overlay. Built SR-MPLS transport fabric using FRRouting with IS-IS adjacency and BGP AS65001, assigning segment routing labels for deterministic path selection.</p>
+                <p>Configured ONOS SDN controller with OpenFlow 1.3 managing 4 virtual devices and 12 bidirectional links. Integrated autonomous DQN + LSTM decision engine executing 20,820+ decision cycles with 1,015+ autonomous placement actions at 2ms latency and 84.5% average confidence.</p>
+                <p>Built heterogeneous inference pipeline across three GPU tiers — T4 (PyTorch, 150ms), L4 (ONNX-GPU, 90ms), Jetson Nano (TensorRT FP16, 24ms). Built Grafana observability stack with 29 real-time panels covering system metrics, network health, AI engine telemetry, and ONOS topology.</p>
+                <!-- Architecture diagram placeholder -->
+                <div class="diagram-placeholder" aria-label="NetrionX 5-node mesh architecture diagram">
+                  <svg viewBox="0 0 800 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="5-node distributed mesh topology">
+                    <!-- Nodes -->
+                    <circle cx="400" cy="60" r="28" stroke="#C2703E" stroke-width="2" fill="#161618"/>
+                    <text x="400" y="65" text-anchor="middle" fill="#E8E4DF" font-size="11" font-family="IBM Plex Mono">ONOS</text>
+                    <circle cx="150" cy="180" r="28" stroke="#C2703E" stroke-width="1.5" fill="#161618"/>
+                    <text x="150" y="185" text-anchor="middle" fill="#E8E4DF" font-size="10" font-family="IBM Plex Mono">AWS T4</text>
+                    <circle cx="300" cy="250" r="28" stroke="#C2703E" stroke-width="1.5" fill="#161618"/>
+                    <text x="300" y="255" text-anchor="middle" fill="#E8E4DF" font-size="10" font-family="IBM Plex Mono">GCP L4</text>
+                    <circle cx="500" cy="250" r="28" stroke="#C2703E" stroke-width="1.5" fill="#161618"/>
+                    <text x="500" y="255" text-anchor="middle" fill="#E8E4DF" font-size="10" font-family="IBM Plex Mono">Edge</text>
+                    <circle cx="650" cy="180" r="28" stroke="#C2703E" stroke-width="1.5" fill="#161618"/>
+                    <text x="650" y="185" text-anchor="middle" fill="#E8E4DF" font-size="10" font-family="IBM Plex Mono">K3s</text>
+                    <!-- Mesh connections -->
+                    <line x1="175" y1="165" x2="375" y2="75" stroke="#2A2A2E" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="625" y1="165" x2="425" y2="75" stroke="#2A2A2E" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="175" y1="195" x2="275" y2="235" stroke="#2A2A2E" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="525" y1="235" x2="625" y2="195" stroke="#2A2A2E" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="328" y1="250" x2="472" y2="250" stroke="#2A2A2E" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="175" y1="180" x2="622" y2="180" stroke="#C2703E" stroke-width="1" opacity="0.3"/>
+                    <!-- Labels -->
+                    <text x="400" y="160" text-anchor="middle" fill="#6B6660" font-size="9" font-family="IBM Plex Mono">WireGuard / VXLAN mesh · SR-MPLS fabric</text>
+                    <text x="400" y="295" text-anchor="middle" fill="#6B6660" font-size="9" font-family="IBM Plex Mono">DQN+LSTM decision engine · 84.5% confidence · 2ms latency</text>
+                  </svg>
+                </div>
+                <div class="case-study-stack t-mono">Python · ONOS SDN · OpenFlow 1.3 · FRRouting · SR-MPLS · BGP · IS-IS · WireGuard · VXLAN · K3s · NVIDIA RuntimeClass · PyTorch · ONNX · TensorRT · Prometheus · Grafana</div>
+              </div>
+            </details>
+          </article>
+
+          <!-- 2. OpenG2P -->
+          <article class="case-study reveal" id="cs-openg2p">
+            <div class="case-study-header">
+              <div class="case-study-meta">
+                <span class="t-mono">Mid-2025 – Present</span>
+                <span class="case-study-tag">Government Infrastructure</span>
+              </div>
+              <h3 class="case-study-title">OpenG2P Ethiopia</h3>
+              <p class="case-study-subtitle">National-scale digital transformation for Ethiopia's Fayda ID-enabled welfare systems</p>
+            </div>
+            <div class="case-study-metrics">
+              <div class="metric">
+                <span class="metric-value t-mono">3 ministries</span>
+                <span class="metric-label">ATI, MoWSA, EDRMC</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">Dual infra</span>
+                <span class="metric-label">Ethio Telecom + On-prem</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">National</span>
+                <span class="metric-label">Fayda ID scale, millions</span>
+              </div>
+            </div>
+            <details class="case-study-detail">
+              <summary>Read full case study</summary>
+              <div class="case-study-body">
+                <p>Leading DevOps implementation across three Ethiopian government entities — the Agricultural Transformation Institute, Ministry of Women and Social Affairs, and Ethiopian Disaster Risk Management Commission. Deployed production-grade RKE2 clusters with Rancher management, Istio service mesh with mTLS, and Keycloak SSO federation across all entities.</p>
+                <p>Architected dual-infrastructure deployments spanning Ethio Telecom cloud and on-premises environments with HA infrastructure including Hardware RAID 1+0, XCP-ng hypervisor, and WireGuard VPN tunnels. Currently implementing large-scale beneficiary data migration from ODK to OpenG2P for national social protection programs.</p>
+                <div class="diagram-placeholder" aria-label="OpenG2P dual infrastructure topology">
+                  <svg viewBox="0 0 800 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dual infrastructure deployment topology">
+                    <!-- Ethio Telecom Cloud -->
+                    <rect x="40" y="30" width="320" height="180" rx="4" stroke="#2A2A2E" stroke-width="1" fill="none"/>
+                    <text x="200" y="55" text-anchor="middle" fill="#6B6660" font-size="10" font-family="IBM Plex Mono">Ethio Telecom Cloud</text>
+                    <rect x="70" y="75" width="100" height="40" rx="3" fill="#161618" stroke="#C2703E" stroke-width="1"/>
+                    <text x="120" y="99" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">RKE2 + Rancher</text>
+                    <rect x="190" y="75" width="80" height="40" rx="3" fill="#161618" stroke="#2A2A2E" stroke-width="1"/>
+                    <text x="230" y="99" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">Istio Mesh</text>
+                    <rect x="70" y="135" width="80" height="40" rx="3" fill="#161618" stroke="#2A2A2E" stroke-width="1"/>
+                    <text x="110" y="159" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">Keycloak</text>
+                    <rect x="170" y="135" width="100" height="40" rx="3" fill="#161618" stroke="#2A2A2E" stroke-width="1"/>
+                    <text x="220" y="159" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">OpenG2P</text>
+                    <!-- WireGuard tunnel -->
+                    <line x1="360" y1="120" x2="440" y2="120" stroke="#C2703E" stroke-width="1.5" stroke-dasharray="6 3"/>
+                    <text x="400" y="112" text-anchor="middle" fill="#C2703E" font-size="8" font-family="IBM Plex Mono">WireGuard</text>
+                    <!-- On-Premises -->
+                    <rect x="440" y="30" width="320" height="180" rx="4" stroke="#2A2A2E" stroke-width="1" fill="none"/>
+                    <text x="600" y="55" text-anchor="middle" fill="#6B6660" font-size="10" font-family="IBM Plex Mono">On-Premises (RAID 1+0)</text>
+                    <rect x="470" y="75" width="100" height="40" rx="3" fill="#161618" stroke="#C2703E" stroke-width="1"/>
+                    <text x="520" y="99" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">XCP-ng</text>
+                    <rect x="590" y="75" width="80" height="40" rx="3" fill="#161618" stroke="#2A2A2E" stroke-width="1"/>
+                    <text x="630" y="99" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">RKE2</text>
+                    <rect x="470" y="135" width="200" height="40" rx="3" fill="#161618" stroke="#2A2A2E" stroke-width="1"/>
+                    <text x="570" y="159" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">ATI · MoWSA · EDRMC</text>
+                  </svg>
+                </div>
+                <div class="case-study-stack t-mono">RKE2 · Rancher · Istio · Keycloak · XCP-ng · WireGuard · OpenG2P · Helm</div>
+              </div>
+            </details>
+          </article>
+
+          <!-- 3. WeTruck -->
+          <article class="case-study reveal" id="cs-wetruck">
+            <div class="case-study-header">
+              <div class="case-study-meta">
+                <span class="t-mono">Jan 2025 – Apr 2025</span>
+                <span class="case-study-tag">Serverless Architecture</span>
+              </div>
+              <h3 class="case-study-title">WeTruck Serverless Logistics</h3>
+              <p class="case-study-subtitle">Cloud-native serverless platform for shipment lifecycle, real-time GPS, and automated payments</p>
+            </div>
+            <div class="case-study-metrics">
+              <div class="metric">
+                <span class="metric-value t-mono">Zero</span>
+                <span class="metric-label">long-lived credentials</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">11+</span>
+                <span class="metric-label">async SQS job types</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">100%</span>
+                <span class="metric-label">Terraform IaC</span>
+              </div>
+            </div>
+            <details class="case-study-detail">
+              <summary>Read full case study</summary>
+              <div class="case-study-body">
+                <p>Designed AWS Lambda (Python 3.12) architecture serving REST APIs via FastAPI + Mangum, handling synchronous HTTP traffic and asynchronous job processing across dev/prod environments. Built containerized Lambda deployments using ECR with automated Docker builds and semantic version tagging.</p>
+                <p>Built end-to-end GitHub Actions pipeline with OIDC federation to AWS — zero long-lived credentials — automated testing, Docker build/push to ECR, Lambda deployment, and post-deploy migration triggers. Managed PostgreSQL (RDS) with PostGIS for geospatial queries, Alembic migrations with advisory locking.</p>
+                <p>Implemented SQS-driven async job processing with batch item failure reporting. Integrated OpenTelemetry distributed tracing with OTLP HTTP exporter and AWS X-Ray propagation. Implemented JWT authentication, role-based access control, and security headers middleware.</p>
+                <div class="case-study-stack t-mono">Python · FastAPI · AWS Lambda · ECR · RDS PostgreSQL · PostGIS · SQS · S3 · GitHub Actions · OIDC · OpenTelemetry · Docker</div>
+              </div>
+            </details>
+          </article>
+
+          <!-- 4. Multi-Bank Mobile Banking -->
+          <article class="case-study reveal" id="cs-banking">
+            <div class="case-study-header">
+              <div class="case-study-meta">
+                <span class="t-mono">Feb 2023 – Jun 2025</span>
+                <span class="case-study-tag">Financial Infrastructure</span>
+              </div>
+              <h3 class="case-study-title">Multi-Bank Mobile Banking Platform</h3>
+              <p class="case-study-subtitle">Production banking infrastructure for Siinqee, Hijra, and Wegagen banks with HA failover</p>
+            </div>
+            <div class="case-study-metrics">
+              <div class="metric">
+                <span class="metric-value t-mono">3 banks</span>
+                <span class="metric-label">Siinqee, Hijra, Wegagen</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">HA</span>
+                <span class="metric-label">Heartbeat failover</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">Keycloak</span>
+                <span class="metric-label">production SSO</span>
+              </div>
+            </div>
+            <details class="case-study-detail">
+              <summary>Read full case study</summary>
+              <div class="case-study-body">
+                <p>Deployed Docker and Kubernetes clusters with resource limits, HPA, and load balancing for mobile banking, USSD, and REST microservices on WildFly and Nginx. Implemented Jenkins pipelines automating the full lifecycle for Maven-based Java applications.</p>
+                <p>Managed Proxmox clusters for HA virtualization and AWS infrastructure. Configured ActiveMQ message brokering and MySQL tuning for banking workloads. Integrated ELK stack for centralized logging and Prometheus/Grafana for resource monitoring. Implemented Keycloak SSO, Heartbeat HA failover, and comprehensive security policies across production banking environments.</p>
+                <div class="case-study-stack t-mono">Docker · Kubernetes · Jenkins · Proxmox · AWS · Nginx · WildFly · ActiveMQ · MySQL · ELK · Keycloak</div>
+              </div>
+            </details>
+          </article>
+
+          <!-- 5. Ministry of Revenue ITAS -->
+          <article class="case-study reveal" id="cs-itas">
+            <div class="case-study-header">
+              <div class="case-study-meta">
+                <span class="t-mono">Atlas Computer Technology</span>
+                <span class="case-study-tag">Government Systems</span>
+              </div>
+              <h3 class="case-study-title">Ministry of Revenue — ITAS Platform</h3>
+              <p class="case-study-subtitle">Clustered tax payment infrastructure for Ethiopia's national revenue system</p>
+            </div>
+            <div class="case-study-metrics">
+              <div class="metric">
+                <span class="metric-value t-mono">National</span>
+                <span class="metric-label">tax revenue scale</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value t-mono">Clustered</span>
+                <span class="metric-label">HA deployment</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- SECONDARY CASE STUDIES -->
+        <div class="secondary-studies reveal">
+          <h3 class="t-subheading" style="margin-bottom: var(--s-4);">Additional Work</h3>
+          <div class="secondary-grid">
+            <div class="secondary-card">
+              <span class="t-mono">Exponent.ch</span>
+              <p>NVIDIA GPU-enabled RKE2 clusters for AI/ML workloads — n8n, Langfuse, LibreChat, ClickHouse with Terraform/Terragrunt and Teleport access.</p>
+            </div>
+            <div class="secondary-card">
+              <span class="t-mono">ODK → OpenG2P Migration</span>
+              <p>Large-scale beneficiary data migration for national social protection programs across Ethiopian government entities.</p>
+            </div>
+            <div class="secondary-card">
+              <span class="t-mono">Centriweb (NZ)</span>
+              <p>Backend and DevOps for international clients — Terraform IaC, CI/CD pipeline optimization, cloud resource monitoring for performance and cost.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         CAPABILITIES
+    ═══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="capabilities-heading">
+      <div class="container">
+        <p class="t-subheading reveal">Capabilities</p>
+        <h2 id="capabilities-heading" class="t-heading reveal">Architectural Expertise</h2>
+
+        <div class="capabilities-grid">
+          <div class="capability-card reveal">
+            <h3>Container Platforms</h3>
+            <p>Production RKE2 clusters managed through Rancher at government and enterprise scale. K3s for edge and lightweight deployments, EKS for AWS-native workloads. Istio service mesh with mTLS for zero-trust networking. Helm umbrella charts for repeatable multi-service deployments.</p>
+            <span class="capability-tools t-mono">RKE2 · Rancher · K3s · EKS · Istio · Helm · Docker · OpenShift</span>
+          </div>
+          <div class="capability-card reveal">
+            <h3>Infrastructure as Code</h3>
+            <p>Terraform and Terragrunt with strict module discipline, DRY principles, and multi-environment support. Ansible for configuration management across heterogeneous infrastructure. Packer for reproducible machine image builds. Every environment reproducible from version-controlled definitions.</p>
+            <span class="capability-tools t-mono">Terraform · Terragrunt · Ansible · Packer · OpenTofu</span>
+          </div>
+          <div class="capability-card reveal">
+            <h3>CI/CD Architecture</h3>
+            <p>GitHub Actions with OIDC federation for zero-credential deployments to AWS. GitLab CI with protected environments and approval gates. Jenkins for legacy Maven pipelines in banking environments. Every pipeline tested, versioned, and auditable.</p>
+            <span class="capability-tools t-mono">GitHub Actions · GitLab CI · Jenkins · OIDC · ArgoCD</span>
+          </div>
+          <div class="capability-card reveal">
+            <h3>Cloud & Hybrid</h3>
+            <p>AWS-native architectures (Lambda, ECR, RDS, SQS, S3, EventBridge, Secrets Manager, IAM) alongside GCP compute and Azure evaluation. On-premises Proxmox and XCP-ng virtualization. Dual-infrastructure government deployments bridging public cloud and sovereign on-premises environments.</p>
+            <span class="capability-tools t-mono">AWS · GCP · Azure · Proxmox · XCP-ng</span>
+          </div>
+          <div class="capability-card reveal">
+            <h3>Networking & SDN</h3>
+            <p>SR-MPLS transport fabrics using FRRouting with IS-IS and BGP for deterministic path selection. ONOS SDN controller with OpenFlow 1.3 for programmatic flow rule installation. WireGuard mesh overlays with VXLAN for multi-cloud connectivity. Nginx and HAProxy reverse proxies at production scale.</p>
+            <span class="capability-tools t-mono">SR-MPLS · FRRouting · ONOS · BGP · IS-IS · WireGuard · VXLAN · Nginx</span>
+          </div>
+          <div class="capability-card reveal">
+            <h3>Observability</h3>
+            <p>Prometheus with Grafana and Mimir for metrics at scale. ELK stack for centralized logging in banking and government environments. OpenTelemetry distributed tracing with X-Ray propagation. Zabbix for legacy infrastructure monitoring. 29-panel observability dashboards covering system, network, and AI telemetry.</p>
+            <span class="capability-tools t-mono">Prometheus · Grafana · Mimir · ELK · OpenTelemetry · Zabbix · SigNoz</span>
+          </div>
+          <div class="capability-card reveal">
+            <h3>Identity & Zero-Trust</h3>
+            <p>Keycloak federation across multi-entity government deployments. Teleport for identity-aware Kubernetes access with session recording. IAM OIDC federation eliminating long-lived credentials in CI/CD pipelines. Fine-grained RBAC and JWT authentication in production APIs.</p>
+            <span class="capability-tools t-mono">Keycloak · Teleport · Vault · IAM OIDC · JWT · RBAC</span>
+          </div>
+          <div class="capability-card reveal">
+            <h3>GPU & AI Infrastructure</h3>
+            <p>NVIDIA RuntimeClass on Kubernetes with GPU-aware scheduling across heterogeneous compute — T4 16GB, L4 24GB, Jetson Nano. Inference pipelines spanning PyTorch, ONNX Runtime, and TensorRT FP16. Dynamic workload placement and live migration across GPU tiers.</p>
+            <span class="capability-tools t-mono">NVIDIA RuntimeClass · PyTorch · ONNX · TensorRT · vLLM · Jetson Nano</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         EXPERIENCE TIMELINE
+    ═══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="experience-heading">
+      <div class="container container--narrow">
+        <p class="t-subheading reveal">Experience</p>
+        <h2 id="experience-heading" class="t-heading reveal">Timeline</h2>
+
+        <ol class="timeline" role="list">
+          <li class="timeline-entry reveal">
+            <span class="timeline-date t-mono">Mar 2026 – Present</span>
+            <div class="timeline-content">
+              <strong>DevOps Engineer</strong> · NDIT Solutions
+              <span class="t-small">Remote contractor for US IT consultancy — cloud strategy, DevOps automation, managed services</span>
+            </div>
+          </li>
+          <li class="timeline-entry reveal">
+            <span class="timeline-date t-mono">Nov 2025 – Present</span>
+            <div class="timeline-content">
+              <strong>Platform Engineer</strong> · NetrionX Inc.
+              <span class="t-small">Distributed AI infrastructure orchestration — patent-pending DDEF platform</span>
+            </div>
+          </li>
+          <li class="timeline-entry reveal">
+            <span class="timeline-date t-mono">Mid-2025 – Present</span>
+            <div class="timeline-content">
+              <strong>DevOps Engineer</strong> · OpenG2P Ethiopia
+              <span class="t-small">National digital transformation — ATI, MoWSA, EDRMC ministries</span>
+            </div>
+          </li>
+          <li class="timeline-entry reveal">
+            <span class="timeline-date t-mono">Apr – Jun 2025</span>
+            <div class="timeline-content">
+              <strong>Senior DevOps Engineer</strong> · Exponent.ch
+              <span class="t-small">GPU-enabled RKE2 clusters, Terraform/Terragrunt, Teleport — Switzerland</span>
+            </div>
+          </li>
+          <li class="timeline-entry reveal">
+            <span class="timeline-date t-mono">Jan – Apr 2025</span>
+            <div class="timeline-content">
+              <strong>Backend & DevOps Engineer</strong> · WeTruck
+              <span class="t-small">Serverless AWS, OIDC federation, OpenTelemetry distributed tracing</span>
+            </div>
+          </li>
+          <li class="timeline-entry reveal">
+            <span class="timeline-date t-mono">Jun – Dec 2025</span>
+            <div class="timeline-content">
+              <strong>Backend / DevOps Engineer</strong> · Centriweb
+              <span class="t-small">International client engagements — Auckland, New Zealand</span>
+            </div>
+          </li>
+          <li class="timeline-entry reveal">
+            <span class="timeline-date t-mono">Feb 2023 – Jun 2025</span>
+            <div class="timeline-content">
+              <strong>DevOps Engineer</strong> · Atlas Computer Technology
+              <span class="t-small">Banking infrastructure — Siinqee, Hijra, Wegagen — Kubernetes, Jenkins, Proxmox, ELK</span>
+            </div>
+          </li>
+          <li class="timeline-entry reveal">
+            <span class="timeline-date t-mono">Sep 2021 – Jan 2023</span>
+            <div class="timeline-content">
+              <strong>Junior DevOps Engineer</strong> · Atlas Computer Technology
+              <span class="t-small">On-premise Proxmox, USSD/mobile banking UAT, monitoring with Zabbix and ELK</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         ABOUT
+    ═══════════════════════════════════════════ -->
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <div class="container container--narrow">
+        <p class="t-subheading reveal">About</p>
+        <h2 id="about-heading" class="t-heading reveal">Background</h2>
+
+        <div class="about-content reveal">
+          <p class="t-body-large">BSc Computer Science from Admas University, Addis Ababa (2018–2022). Based in Addis Ababa, operating across UTC+3 with full overlap to US and European business hours when required.</p>
+          <p>Languages: English (fluent business and technical), Amharic (native), French (A1), Spanish (A1).</p>
+        </div>
+
+        <div class="certifications reveal">
+          <h3 class="t-subheading" style="margin-bottom: var(--s-3);">Certifications</h3>
+          <ul class="cert-list t-small">
+            <li>Advanced Kubernetes — LinkedIn Learning, Apr 2025</li>
+            <li>Advanced Terraform — LinkedIn Learning, Mar 2025</li>
+            <li>Build a CI/CD Pipeline — LinkedIn Learning, Mar 2025</li>
+            <li>DevOps Foundations: Site Reliability Engineering — LinkedIn Learning, Mar 2025</li>
+            <li>Running Kubernetes on AWS / EKS — LinkedIn Learning, Mar 2025</li>
+            <li>Linux Fundamentals Bootcamp</li>
+            <li>NGINX Web Server from Scratch</li>
+          </ul>
+        </div>
+
+        <div class="references reveal">
+          <details>
+            <summary class="t-small">References available on request</summary>
+            <p class="t-small" style="margin-top: var(--s-2);">Anteneh Temesgen (Senior Software Engineer), Biruk Tesfaw (Senior Software Developer), Muluken Solomon (Senior Software Engineer)</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         CONTACT
+    ═══════════════════════════════════════════ -->
+    <section id="contact" class="contact-section section" aria-labelledby="contact-heading">
+      <div class="container container--narrow">
+        <p class="t-subheading reveal">Contact</p>
+        <h2 id="contact-heading" class="t-heading reveal">Let's work together</h2>
+        <p class="t-body-large reveal" style="margin-bottom: var(--s-8);">Available for infrastructure consulting, platform engineering contracts, and DevOps engagements. Currently based in Addis Ababa with flexible timezone coverage.</p>
+
+        <div class="contact-links reveal">
+          <a href="mailto:tedionabera@gmail.com" class="contact-link">
+            <span class="contact-link-label t-mono">Email</span>
+            <span>tedionabera@gmail.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/teddy-abera-danamo" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-label t-mono">LinkedIn</span>
+            <span>teddy-abera-danamo</span>
+          </a>
+          <a href="https://github.com/Tedion" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-label t-mono">GitHub</span>
+            <span>Tedion</span>
+          </a>
+          <a href="tel:+251910161555" class="contact-link">
+            <span class="contact-link-label t-mono">Phone</span>
+            <span>+251 910 161 555</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p class="t-small">Teddy Abera Danamo · Addis Ababa</p>
+      <p class="t-mono" style="font-size: 0.75rem; color: var(--c-text-tertiary);">
+        Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a> ·
+        <a href="https://github.com/Tedion/teddy-portfolio" target="_blank" rel="noopener noreferrer">Source</a>
+      </p>
+    </div>
+  </footer>
+</Base>
+
+<style>
+  /* ═══════════════════════════════════════════
+     HEADER
+  ═══════════════════════════════════════════ */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-nav);
+    background: rgba(12, 12, 14, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--c-border-subtle);
+    padding-block: var(--s-3);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+  }
+
+  .header-identity {
+    display: flex;
+    align-items: center;
+    gap: var(--s-4);
+    flex-wrap: wrap;
+  }
+
+  .header-name {
+    font-family: var(--f-sans);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--c-text);
+    text-decoration: none;
+  }
+  .header-name:hover { color: var(--c-text); }
+
+  .header-status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+    color: var(--c-text-tertiary);
+    font-size: 0.6875rem;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 6px rgba(74, 222, 128, 0.4);
+  }
+
+  .header-nav {
+    display: flex;
+    gap: var(--s-6);
+  }
+
+  .header-nav a {
+    font-size: 0.875rem;
+    color: var(--c-text-secondary);
+    transition: color var(--duration) var(--ease);
+  }
+  .header-nav a:hover { color: var(--c-text); }
+
+  /* ═══════════════════════════════════════════
+     HERO
+  ═══════════════════════════════════════════ */
+  .hero {
+    padding-top: var(--s-32);
+    padding-bottom: var(--s-20);
+  }
+
+  .hero-headline {
+    margin-top: var(--s-4);
+    margin-bottom: var(--s-12);
+    max-width: 48rem;
+  }
+
+  .hero-anchors {
+    display: grid;
+    gap: var(--s-6);
+    border-top: 1px solid var(--c-border);
+    padding-top: var(--s-8);
+  }
+
+  .hero-anchor {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: var(--s-4);
+    align-items: baseline;
+  }
+
+  .hero-anchor-label {
+    color: var(--c-accent);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-anchor p {
+    color: var(--c-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* ═══════════════════════════════════════════
+     CASE STUDIES
+  ═══════════════════════════════════════════ */
+  .case-studies {
+    margin-top: var(--s-8);
+    display: grid;
+    gap: var(--s-1);
+  }
+
+  .case-study {
+    border: 1px solid var(--c-border-subtle);
+    border-radius: 6px;
+    background: var(--c-surface);
+    overflow: hidden;
+    transition: border-color var(--duration) var(--ease);
+  }
+  .case-study:hover {
+    border-color: var(--c-border);
+  }
+
+  .case-study-header {
+    padding: var(--s-6) var(--s-6) var(--s-4);
+  }
+
+  .case-study-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    margin-bottom: var(--s-3);
+    font-size: 0.75rem;
+    color: var(--c-text-tertiary);
+  }
+
+  .case-study-tag {
+    font-family: var(--f-mono);
+    font-size: 0.6875rem;
+    color: var(--c-accent);
+    background: var(--c-accent-muted);
+    padding: 0.125rem 0.5rem;
+    border-radius: 3px;
+  }
+
+  .case-study-title {
+    font-family: var(--f-serif);
+    font-size: 1.375rem;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: var(--s-1);
+  }
+
+  .case-study-subtitle {
+    color: var(--c-text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  .case-study-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-6);
+    padding: var(--s-4) var(--s-6);
+    border-top: 1px solid var(--c-border-subtle);
+    background: var(--c-bg);
+  }
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .metric-value {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--c-text);
+  }
+
+  .metric-label {
+    font-size: 0.75rem;
+    color: var(--c-text-tertiary);
+  }
+
+  .case-study-detail {
+    border-top: 1px solid var(--c-border-subtle);
+  }
+
+  .case-study-detail summary {
+    padding: var(--s-3) var(--s-6);
+    font-family: var(--f-mono);
+    font-size: 0.8125rem;
+    color: var(--c-accent);
+    cursor: pointer;
+    transition: background var(--duration) var(--ease);
+    list-style: none;
+  }
+  .case-study-detail summary::-webkit-details-marker { display: none; }
+  .case-study-detail summary::before {
+    content: '+ ';
+    font-weight: 600;
+  }
+  .case-study-detail[open] summary::before {
+    content: '− ';
+  }
+  .case-study-detail summary:hover {
+    background: var(--c-accent-muted);
+  }
+
+  .case-study-body {
+    padding: var(--s-4) var(--s-6) var(--s-6);
+  }
+
+  .case-study-body p {
+    color: var(--c-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    margin-bottom: var(--s-4);
+  }
+
+  .case-study-stack {
+    font-size: 0.75rem;
+    color: var(--c-text-tertiary);
+    margin-top: var(--s-4);
+    padding-top: var(--s-3);
+    border-top: 1px solid var(--c-border-subtle);
+  }
+
+  .diagram-placeholder {
+    margin: var(--s-4) 0;
+    background: var(--c-bg);
+    border: 1px solid var(--c-border-subtle);
+    border-radius: 4px;
+    padding: var(--s-4);
+    overflow-x: auto;
+  }
+
+  .diagram-placeholder svg {
+    width: 100%;
+    height: auto;
+    min-width: 500px;
+  }
+
+  /* Secondary studies */
+  .secondary-studies {
+    margin-top: var(--s-12);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--s-4);
+  }
+
+  .secondary-card {
+    padding: var(--s-4);
+    border: 1px solid var(--c-border-subtle);
+    border-radius: 4px;
+    background: var(--c-surface);
+  }
+
+  .secondary-card .t-mono {
+    display: block;
+    margin-bottom: var(--s-2);
+    color: var(--c-text);
+    font-size: 0.8125rem;
+  }
+
+  .secondary-card p {
+    color: var(--c-text-secondary);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  /* ═══════════════════════════════════════════
+     CAPABILITIES
+  ═══════════════════════════════════════════ */
+  .capabilities-grid {
+    margin-top: var(--s-8);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--s-4);
+  }
+
+  .capability-card {
+    padding: var(--s-6);
+    border: 1px solid var(--c-border-subtle);
+    border-radius: 4px;
+    background: var(--c-surface);
+    transition: border-color var(--duration) var(--ease);
+  }
+  .capability-card:hover {
+    border-color: var(--c-border);
+  }
+
+  .capability-card h3 {
+    font-family: var(--f-sans);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    margin-bottom: var(--s-3);
+    color: var(--c-text);
+  }
+
+  .capability-card p {
+    color: var(--c-text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: var(--s-3);
+  }
+
+  .capability-tools {
+    font-size: 0.6875rem;
+    color: var(--c-text-tertiary);
+    display: block;
+    padding-top: var(--s-3);
+    border-top: 1px solid var(--c-border-subtle);
+  }
+
+  /* ═══════════════════════════════════════════
+     TIMELINE
+  ═══════════════════════════════════════════ */
+  .timeline {
+    margin-top: var(--s-8);
+    display: grid;
+    gap: 0;
+  }
+
+  .timeline-entry {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    gap: var(--s-4);
+    padding-block: var(--s-4);
+    border-bottom: 1px solid var(--c-border-subtle);
+    align-items: baseline;
+  }
+  .timeline-entry:last-child { border-bottom: none; }
+
+  .timeline-date {
+    font-size: 0.75rem;
+    color: var(--c-text-tertiary);
+    white-space: nowrap;
+  }
+
+  .timeline-content strong {
+    display: block;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    margin-bottom: 0.125rem;
+  }
+
+  .timeline-content .t-small {
+    display: block;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  /* ═══════════════════════════════════════════
+     ABOUT
+  ═══════════════════════════════════════════ */
+  .about-content {
+    margin-top: var(--s-6);
+    margin-bottom: var(--s-8);
+  }
+
+  .about-content p {
+    margin-bottom: var(--s-4);
+    color: var(--c-text-secondary);
+  }
+  .about-content .t-body-large {
+    color: var(--c-text);
+  }
+
+  .certifications {
+    margin-bottom: var(--s-6);
+  }
+
+  .cert-list li {
+    padding-block: var(--s-1);
+    color: var(--c-text-secondary);
+  }
+
+  .references {
+    margin-top: var(--s-4);
+  }
+
+  .references summary {
+    cursor: pointer;
+    color: var(--c-text-tertiary);
+    transition: color var(--duration) var(--ease);
+  }
+  .references summary:hover { color: var(--c-text-secondary); }
+
+  /* ═══════════════════════════════════════════
+     CONTACT
+  ═══════════════════════════════════════════ */
+  .contact-links {
+    display: grid;
+    gap: var(--s-1);
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: var(--s-4);
+    padding: var(--s-4) var(--s-6);
+    border: 1px solid var(--c-border-subtle);
+    border-radius: 4px;
+    background: var(--c-surface);
+    color: var(--c-text);
+    transition: border-color var(--duration) var(--ease),
+                background var(--duration) var(--ease);
+  }
+  .contact-link:hover {
+    border-color: var(--c-accent);
+    background: var(--c-accent-muted);
+    color: var(--c-text);
+  }
+
+  .contact-link-label {
+    min-width: 5rem;
+    font-size: 0.75rem;
+    color: var(--c-text-tertiary);
+  }
+
+  /* ═══════════════════════════════════════════
+     FOOTER
+  ═══════════════════════════════════════════ */
+  .site-footer {
+    padding-block: var(--s-8);
+    border-top: 1px solid var(--c-border-subtle);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--s-4);
+  }
+
+  .footer-inner a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* ═══════════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════════ */
+  @media (max-width: 768px) {
+    :root {
+      --gutter: var(--s-4);
+    }
+
+    .hero {
+      padding-top: var(--s-20);
+      padding-bottom: var(--s-12);
+    }
+
+    .hero-anchor {
+      grid-template-columns: 1fr;
+      gap: var(--s-1);
+    }
+
+    .header-status { display: none; }
+
+    .header-nav { gap: var(--s-4); }
+
+    .case-study-metrics {
+      gap: var(--s-4);
+    }
+
+    .timeline-entry {
+      grid-template-columns: 1fr;
+      gap: var(--s-1);
+    }
+
+    .capabilities-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .section {
+      padding-block: var(--s-16);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header-nav a {
+      font-size: 0.8125rem;
+    }
+
+    .case-study-header {
+      padding: var(--s-4);
+    }
+
+    .case-study-metrics {
+      padding: var(--s-3) var(--s-4);
+    }
+
+    .case-study-body {
+      padding: var(--s-3) var(--s-4) var(--s-4);
+    }
+  }
+</style>
