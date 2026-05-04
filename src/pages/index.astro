@@ -94,121 +94,30 @@ import Base from '../layouts/Base.astro';
                 <p>Architected and deployed a 5-node distributed platform spanning AWS, GCP, and physical edge (Jetson Nano), connected via WireGuard/VXLAN mesh overlay. Built SR-MPLS transport fabric using FRRouting with IS-IS adjacency and BGP AS65001, assigning segment routing labels for deterministic path selection.</p>
                 <p>Configured ONOS SDN controller with OpenFlow 1.3 managing 4 virtual devices and 12 bidirectional links. Integrated autonomous DQN + LSTM decision engine executing 20,820+ decision cycles with 1,015+ autonomous placement actions at 2ms latency and 84.5% average confidence.</p>
                 <p>Built heterogeneous inference pipeline across three GPU tiers — T4 (PyTorch, 150ms), L4 (ONNX-GPU, 90ms), Jetson Nano (TensorRT FP16, 24ms). Built Grafana observability stack with 29 real-time panels covering system metrics, network health, AI engine telemetry, and ONOS topology.</p>
-                <!-- NetrionX Architecture Diagram -->
-                <div class="diagram-placeholder" aria-label="NetrionX DDEF platform architecture">
-                  <svg viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Distributed AI infrastructure with SDN control plane, SR-MPLS fabric, and heterogeneous GPU compute">
-                    <defs>
-                      <marker id="nx-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#343A40"/>
-                      </marker>
-                      <marker id="nx-arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#6F42C1"/>
-                      </marker>
-                    </defs>
-
-                    <!-- Background -->
-                    <rect width="800" height="520" fill="#FFFFFF"/>
-
-                    <!-- === ONOS SDN Control Plane (orange dashed zone) === -->
-                    <rect x="60" y="10" width="480" height="90" rx="6" fill="#FFF8F0" stroke="#FF9900" stroke-width="1" stroke-dasharray="6 3"/>
-                    <text x="80" y="28" fill="#FF9900" font-size="9" font-family="IBM Plex Sans" font-weight="600">ONOS SDN Control Plane</text>
-                    <!-- ONOS Controller box -->
-                    <rect x="140" y="38" width="320" height="50" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="160" cy="63" r="6" fill="#2D7DD2"/>
-                    <text x="175" y="58" fill="#232F3E" font-size="11" font-family="IBM Plex Sans" font-weight="500">ONOS SDN Controller</text>
-                    <text x="175" y="74" fill="#6C757D" font-size="8" font-family="IBM Plex Sans">OpenFlow 1.3 · 4 devices · 12 links</text>
-
-                    <!-- Arrow: ONOS -> Fabric -->
-                    <line x1="300" y1="88" x2="300" y2="120" stroke="#343A40" stroke-width="1" marker-end="url(#nx-arrow)"/>
-                    <text x="310" y="108" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">OpenFlow 1.3</text>
-
-                    <!-- === SR-MPLS Transport Fabric (green dashed zone) === -->
-                    <rect x="60" y="120" width="480" height="70" rx="6" fill="#E8F4E8" stroke="#248814" stroke-width="1" stroke-dasharray="6 3"/>
-                    <text x="80" y="138" fill="#248814" font-size="9" font-family="IBM Plex Sans" font-weight="600">SR-MPLS Transport Fabric</text>
-                    <!-- FRRouting box -->
-                    <rect x="140" y="145" width="320" height="36" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="160" cy="163" r="6" fill="#248814"/>
-                    <text x="175" y="160" fill="#232F3E" font-size="11" font-family="IBM Plex Sans" font-weight="500">FRRouting</text>
-                    <text x="175" y="174" fill="#6C757D" font-size="8" font-family="IBM Plex Sans">IS-IS · BGP AS65001 · Labels 16001-16004</text>
-
-                    <!-- Arrow: Fabric -> GPU Nodes -->
-                    <line x1="300" y1="190" x2="300" y2="222" stroke="#343A40" stroke-width="1" marker-end="url(#nx-arrow)"/>
-                    <text x="310" y="210" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">WireGuard / VXLAN</text>
-
-                    <!-- === GPU Compute Nodes (blue dashed zone) === -->
-                    <rect x="60" y="222" width="480" height="110" rx="6" fill="#E8EEF8" stroke="#527FFF" stroke-width="1" stroke-dasharray="6 3"/>
-                    <text x="80" y="240" fill="#527FFF" font-size="9" font-family="IBM Plex Sans" font-weight="600">GPU Compute Nodes</text>
-
-                    <!-- Node 1: AWS T4 -->
-                    <rect x="75" y="250" width="108" height="68" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="91" cy="266" r="5" fill="#FF9900"/>
-                    <text x="101" y="270" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">AWS T4</text>
-                    <text x="129" y="288" text-anchor="middle" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">PyTorch</text>
-                    <text x="129" y="302" text-anchor="middle" fill="#232F3E" font-size="8" font-family="IBM Plex Sans" font-weight="500">150ms</text>
-
-                    <!-- Node 2: GCP L4 -->
-                    <rect x="195" y="250" width="108" height="68" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="211" cy="266" r="5" fill="#4285F4"/>
-                    <text x="221" y="270" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">GCP L4</text>
-                    <text x="249" y="288" text-anchor="middle" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">ONNX-GPU</text>
-                    <text x="249" y="302" text-anchor="middle" fill="#232F3E" font-size="8" font-family="IBM Plex Sans" font-weight="500">90ms</text>
-
-                    <!-- Node 3: Jetson Nano -->
-                    <rect x="315" y="250" width="108" height="68" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="331" cy="266" r="5" fill="#76B900"/>
-                    <text x="341" y="270" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">Jetson Nano</text>
-                    <text x="369" y="288" text-anchor="middle" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">TensorRT FP16</text>
-                    <text x="369" y="302" text-anchor="middle" fill="#232F3E" font-size="8" font-family="IBM Plex Sans" font-weight="500">24ms</text>
-
-                    <!-- Node 4: K3s Orchestrator -->
-                    <rect x="435" y="250" width="96" height="68" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="451" cy="266" r="5" fill="#326CE5"/>
-                    <text x="461" y="270" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">K3s</text>
-                    <text x="483" y="288" text-anchor="middle" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Orchestrator</text>
-                    <text x="483" y="302" text-anchor="middle" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">GPU-aware</text>
-
-                    <!-- === AI Decision Engine (purple dashed zone, right side) === -->
-                    <rect x="580" y="10" width="200" height="322" rx="6" fill="#F3EEFB" stroke="#6F42C1" stroke-width="1" stroke-dasharray="6 3"/>
-                    <text x="600" y="28" fill="#6F42C1" font-size="9" font-family="IBM Plex Sans" font-weight="600">AI Decision Engine</text>
-
-                    <!-- DQN+LSTM box -->
-                    <rect x="600" y="42" width="160" height="80" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="618" cy="60" r="6" fill="#6F42C1"/>
-                    <text x="632" y="64" fill="#232F3E" font-size="11" font-family="IBM Plex Sans" font-weight="500">DQN + LSTM</text>
-                    <text x="680" y="82" text-anchor="middle" fill="#6C757D" font-size="8" font-family="IBM Plex Sans">20,820+ decisions</text>
-                    <text x="680" y="96" text-anchor="middle" fill="#6C757D" font-size="8" font-family="IBM Plex Sans">84.5% confidence · 2ms</text>
-
-                    <!-- Arrow: AI Engine → K3s "placement" -->
-                    <line x1="680" y1="122" x2="680" y2="260" stroke="#6F42C1" stroke-width="1" stroke-dasharray="4 3"/>
-                    <line x1="680" y1="260" x2="533" y2="260" stroke="#6F42C1" stroke-width="1" marker-end="url(#nx-arrow-purple)"/>
-                    <text x="620" y="200" fill="#6F42C1" font-size="7.5" font-family="IBM Plex Sans">placement</text>
-
-                    <!-- === Observability strip === -->
-                    <rect x="60" y="352" width="720" height="70" rx="6" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="80" y="370" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">Observability</text>
-
-                    <!-- Prometheus box -->
-                    <rect x="80" y="380" width="120" height="32" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="96" cy="396" r="5" fill="#E6522C"/>
-                    <text x="108" y="400" fill="#232F3E" font-size="9" font-family="IBM Plex Sans">Prometheus</text>
-
-                    <!-- Arrow -->
-                    <line x1="200" y1="396" x2="240" y2="396" stroke="#343A40" stroke-width="1" marker-end="url(#nx-arrow)"/>
-
-                    <!-- Grafana box -->
-                    <rect x="242" y="380" width="100" height="32" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="258" cy="396" r="5" fill="#F46800"/>
-                    <text x="270" y="400" fill="#232F3E" font-size="9" font-family="IBM Plex Sans">Grafana</text>
-
-                    <!-- Arrow -->
-                    <line x1="342" y1="396" x2="382" y2="396" stroke="#343A40" stroke-width="1" marker-end="url(#nx-arrow)"/>
-
-                    <!-- 29 panels box -->
-                    <rect x="384" y="380" width="100" height="32" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="434" y="400" text-anchor="middle" fill="#232F3E" font-size="9" font-family="IBM Plex Sans">29 panels</text>
-
-                    <!-- Bottom annotation -->
-                    <text x="400" y="460" text-anchor="middle" fill="#6C757D" font-size="9" font-family="IBM Plex Sans">11.6ms avg RTT · 0.35ms jitter</text>
+                <!-- Architecture diagram placeholder -->
+                <div class="diagram-placeholder" aria-label="NetrionX 5-node mesh architecture diagram">
+                  <svg viewBox="0 0 800 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="5-node distributed mesh topology">
+                    <!-- Nodes -->
+                    <circle cx="400" cy="60" r="28" stroke="#C2703E" stroke-width="2" fill="#161618"/>
+                    <text x="400" y="65" text-anchor="middle" fill="#E8E4DF" font-size="11" font-family="IBM Plex Mono">ONOS</text>
+                    <circle cx="150" cy="180" r="28" stroke="#C2703E" stroke-width="1.5" fill="#161618"/>
+                    <text x="150" y="185" text-anchor="middle" fill="#E8E4DF" font-size="10" font-family="IBM Plex Mono">AWS T4</text>
+                    <circle cx="300" cy="250" r="28" stroke="#C2703E" stroke-width="1.5" fill="#161618"/>
+                    <text x="300" y="255" text-anchor="middle" fill="#E8E4DF" font-size="10" font-family="IBM Plex Mono">GCP L4</text>
+                    <circle cx="500" cy="250" r="28" stroke="#C2703E" stroke-width="1.5" fill="#161618"/>
+                    <text x="500" y="255" text-anchor="middle" fill="#E8E4DF" font-size="10" font-family="IBM Plex Mono">Edge</text>
+                    <circle cx="650" cy="180" r="28" stroke="#C2703E" stroke-width="1.5" fill="#161618"/>
+                    <text x="650" y="185" text-anchor="middle" fill="#E8E4DF" font-size="10" font-family="IBM Plex Mono">K3s</text>
+                    <!-- Mesh connections -->
+                    <line x1="175" y1="165" x2="375" y2="75" stroke="#2A2A2E" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="625" y1="165" x2="425" y2="75" stroke="#2A2A2E" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="175" y1="195" x2="275" y2="235" stroke="#2A2A2E" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="525" y1="235" x2="625" y2="195" stroke="#2A2A2E" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="328" y1="250" x2="472" y2="250" stroke="#2A2A2E" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="175" y1="180" x2="622" y2="180" stroke="#C2703E" stroke-width="1" opacity="0.3"/>
+                    <!-- Labels -->
+                    <text x="400" y="160" text-anchor="middle" fill="#6B6660" font-size="9" font-family="IBM Plex Mono">WireGuard / VXLAN mesh · SR-MPLS fabric</text>
+                    <text x="400" y="295" text-anchor="middle" fill="#6B6660" font-size="9" font-family="IBM Plex Mono">DQN+LSTM decision engine · 84.5% confidence · 2ms latency</text>
                   </svg>
                 </div>
                 <div class="case-study-stack t-mono">Python · ONOS SDN · OpenFlow 1.3 · FRRouting · SR-MPLS · BGP · IS-IS · WireGuard · VXLAN · K3s · NVIDIA RuntimeClass · PyTorch · ONNX · TensorRT · Prometheus · Grafana</div>
@@ -245,337 +154,34 @@ import Base from '../layouts/Base.astro';
               <div class="case-study-body">
                 <p>Leading DevOps implementation across three Ethiopian government entities — the Agricultural Transformation Institute, Ministry of Women and Social Affairs, and Ethiopian Disaster Risk Management Commission. Deployed production-grade RKE2 clusters with Rancher management, Istio service mesh with mTLS, and Keycloak SSO federation across all entities.</p>
                 <p>Architected dual-infrastructure deployments spanning Ethio Telecom cloud and on-premises environments with HA infrastructure including Hardware RAID 1+0, XCP-ng hypervisor, and WireGuard VPN tunnels. Currently implementing large-scale beneficiary data migration from ODK to OpenG2P for national social protection programs.</p>
-                <!-- OpenG2P Architecture Diagram -->
                 <div class="diagram-placeholder" aria-label="OpenG2P dual infrastructure topology">
-                  <svg viewBox="0 0 800 440" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dual-infrastructure government deployment across Ethio Telecom and on-premises">
-                    <defs>
-                      <marker id="g2p-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#343A40"/>
-                      </marker>
-                    </defs>
-
-                    <!-- Background -->
-                    <rect width="800" height="440" fill="#FFFFFF"/>
-
-                    <!-- === Ministry Consumers (top row) === -->
-                    <rect x="140" y="10" width="130" height="38" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="158" cy="29" r="5" fill="#FF9900"/>
-                    <text x="170" y="33" fill="#232F3E" font-size="10" font-family="IBM Plex Sans" font-weight="500">ATI</text>
-
-                    <rect x="335" y="10" width="130" height="38" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="353" cy="29" r="5" fill="#FF9900"/>
-                    <text x="365" y="33" fill="#232F3E" font-size="10" font-family="IBM Plex Sans" font-weight="500">MoWSA</text>
-
-                    <rect x="530" y="10" width="130" height="38" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="548" cy="29" r="5" fill="#FF9900"/>
-                    <text x="560" y="33" fill="#232F3E" font-size="10" font-family="IBM Plex Sans" font-weight="500">EDRMC</text>
-
-                    <!-- Arrows down to Fayda ID -->
-                    <line x1="205" y1="48" x2="340" y2="68" stroke="#343A40" stroke-width="1" marker-end="url(#g2p-arrow)"/>
-                    <line x1="400" y1="48" x2="400" y2="68" stroke="#343A40" stroke-width="1" marker-end="url(#g2p-arrow)"/>
-                    <line x1="595" y1="48" x2="462" y2="68" stroke="#343A40" stroke-width="1" marker-end="url(#g2p-arrow)"/>
-
-                    <!-- === Fayda National ID bar === -->
-                    <rect x="250" y="66" width="300" height="34" rx="4" fill="#FFF3E0" stroke="#FF9900" stroke-width="1"/>
-                    <text x="400" y="87" text-anchor="middle" fill="#232F3E" font-size="11" font-family="IBM Plex Sans" font-weight="600">Fayda National ID</text>
-
-                    <!-- Arrows: Fayda -> Zones -->
-                    <line x1="340" y1="100" x2="195" y2="125" stroke="#343A40" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#g2p-arrow)"/>
-                    <line x1="460" y1="100" x2="605" y2="125" stroke="#343A40" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#g2p-arrow)"/>
-
-                    <!-- === Ethio Telecom Cloud (left, blue dashed) === -->
-                    <rect x="15" y="125" width="360" height="250" rx="6" fill="#E8EEF8" stroke="#527FFF" stroke-width="1" stroke-dasharray="6 3"/>
-                    <text x="35" y="143" fill="#527FFF" font-size="9" font-family="IBM Plex Sans" font-weight="600">Ethio Telecom Cloud</text>
-
-                    <!-- RKE2 + Rancher -->
-                    <rect x="30" y="155" width="160" height="44" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="46" cy="177" r="5" fill="#326CE5"/>
-                    <text x="58" y="173" fill="#232F3E" font-size="9.5" font-family="IBM Plex Sans" font-weight="500">RKE2 + Rancher</text>
-                    <text x="58" y="187" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Cluster management</text>
-
-                    <!-- Istio -->
-                    <rect x="200" y="155" width="160" height="44" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="216" cy="177" r="5" fill="#466BB0"/>
-                    <text x="228" y="173" fill="#232F3E" font-size="9.5" font-family="IBM Plex Sans" font-weight="500">Istio</text>
-                    <text x="228" y="187" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">mTLS service mesh</text>
-
-                    <!-- Keycloak SSO -->
-                    <rect x="30" y="210" width="110" height="44" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="46" cy="232" r="5" fill="#4D4D4D"/>
-                    <text x="58" y="228" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">Keycloak SSO</text>
-                    <text x="58" y="242" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Federation</text>
-
-                    <!-- OpenG2P -->
-                    <rect x="150" y="210" width="100" height="44" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="166" cy="232" r="5" fill="#248814"/>
-                    <text x="178" y="228" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">OpenG2P</text>
-                    <text x="178" y="242" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Platform</text>
-
-                    <!-- Helm -->
-                    <rect x="260" y="210" width="100" height="44" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="276" cy="232" r="5" fill="#0F1689"/>
-                    <text x="288" y="228" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">Helm</text>
-                    <text x="288" y="242" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Charts</text>
-
-                    <!-- ODK migration -->
-                    <rect x="30" y="266" width="335" height="36" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="197" y="282" text-anchor="middle" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">ODK --> OpenG2P migration</text>
-                    <text x="197" y="294" text-anchor="middle" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">National-scale beneficiary data</text>
-
-                    <!-- === WireGuard VPN (center dashed line) === -->
-                    <line x1="375" y1="160" x2="425" y2="160" stroke="#6C757D" stroke-width="1.5" stroke-dasharray="6 3"/>
-                    <line x1="375" y1="200" x2="425" y2="200" stroke="#6C757D" stroke-width="1.5" stroke-dasharray="6 3"/>
-                    <line x1="375" y1="240" x2="425" y2="240" stroke="#6C757D" stroke-width="1.5" stroke-dasharray="6 3"/>
-                    <text x="400" y="280" text-anchor="middle" fill="#6C757D" font-size="8" font-family="IBM Plex Sans" font-weight="500">WireGuard VPN</text>
-
-                    <!-- === On-Premises (right, gray dashed) === -->
-                    <rect x="425" y="125" width="360" height="250" rx="6" fill="#F0F0F0" stroke="#666666" stroke-width="1" stroke-dasharray="6 3"/>
-                    <text x="445" y="143" fill="#666666" font-size="9" font-family="IBM Plex Sans" font-weight="600">On-Premises</text>
-
-                    <!-- XCP-ng -->
-                    <rect x="440" y="155" width="160" height="44" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="456" cy="177" r="5" fill="#019642"/>
-                    <text x="468" y="173" fill="#232F3E" font-size="9.5" font-family="IBM Plex Sans" font-weight="500">XCP-ng</text>
-                    <text x="468" y="187" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">HA virtualization</text>
-
-                    <!-- RKE2 on-prem -->
-                    <rect x="610" y="155" width="160" height="44" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="626" cy="177" r="5" fill="#326CE5"/>
-                    <text x="638" y="173" fill="#232F3E" font-size="9.5" font-family="IBM Plex Sans" font-weight="500">RKE2</text>
-                    <text x="638" y="187" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Production workloads</text>
-
-                    <!-- RAID 1+0 -->
-                    <rect x="440" y="210" width="160" height="44" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="456" cy="232" r="5" fill="#6C757D"/>
-                    <text x="468" y="228" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">RAID 1+0</text>
-                    <text x="468" y="242" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Redundant storage</text>
-
-                    <!-- Prometheus + Grafana -->
-                    <rect x="610" y="210" width="160" height="44" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="626" cy="232" r="5" fill="#E6522C"/>
-                    <text x="638" y="228" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">Prometheus</text>
-                    <text x="638" y="242" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Grafana · Alertmanager</text>
+                  <svg viewBox="0 0 800 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dual infrastructure deployment topology">
+                    <!-- Ethio Telecom Cloud -->
+                    <rect x="40" y="30" width="320" height="180" rx="4" stroke="#2A2A2E" stroke-width="1" fill="none"/>
+                    <text x="200" y="55" text-anchor="middle" fill="#6B6660" font-size="10" font-family="IBM Plex Mono">Ethio Telecom Cloud</text>
+                    <rect x="70" y="75" width="100" height="40" rx="3" fill="#161618" stroke="#C2703E" stroke-width="1"/>
+                    <text x="120" y="99" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">RKE2 + Rancher</text>
+                    <rect x="190" y="75" width="80" height="40" rx="3" fill="#161618" stroke="#2A2A2E" stroke-width="1"/>
+                    <text x="230" y="99" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">Istio Mesh</text>
+                    <rect x="70" y="135" width="80" height="40" rx="3" fill="#161618" stroke="#2A2A2E" stroke-width="1"/>
+                    <text x="110" y="159" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">Keycloak</text>
+                    <rect x="170" y="135" width="100" height="40" rx="3" fill="#161618" stroke="#2A2A2E" stroke-width="1"/>
+                    <text x="220" y="159" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">OpenG2P</text>
+                    <!-- WireGuard tunnel -->
+                    <line x1="360" y1="120" x2="440" y2="120" stroke="#C2703E" stroke-width="1.5" stroke-dasharray="6 3"/>
+                    <text x="400" y="112" text-anchor="middle" fill="#C2703E" font-size="8" font-family="IBM Plex Mono">WireGuard</text>
+                    <!-- On-Premises -->
+                    <rect x="440" y="30" width="320" height="180" rx="4" stroke="#2A2A2E" stroke-width="1" fill="none"/>
+                    <text x="600" y="55" text-anchor="middle" fill="#6B6660" font-size="10" font-family="IBM Plex Mono">On-Premises (RAID 1+0)</text>
+                    <rect x="470" y="75" width="100" height="40" rx="3" fill="#161618" stroke="#C2703E" stroke-width="1"/>
+                    <text x="520" y="99" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">XCP-ng</text>
+                    <rect x="590" y="75" width="80" height="40" rx="3" fill="#161618" stroke="#2A2A2E" stroke-width="1"/>
+                    <text x="630" y="99" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">RKE2</text>
+                    <rect x="470" y="135" width="200" height="40" rx="3" fill="#161618" stroke="#2A2A2E" stroke-width="1"/>
+                    <text x="570" y="159" text-anchor="middle" fill="#E8E4DF" font-size="9" font-family="IBM Plex Mono">ATI · MoWSA · EDRMC</text>
                   </svg>
                 </div>
-                <p>Designed and deployed a comprehensive observability stack across the 3-node RKE2 cluster, with 16 exporters collecting metrics from all services, OpenTelemetry for distributed tracing, Loki for log aggregation, and Tempo for trace storage. Built 34 alerting rules with Alertmanager routing to Email and Slack, plus Grafana dashboards organized across Default, Kubernetes, Databases, and SLO folders.</p>
-                <!-- OpenG2P Monitoring Stack Diagram -->
-                <div class="diagram-placeholder" aria-label="OpenG2P comprehensive observability stack">
-                  <svg viewBox="0 0 800 680" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Full observability architecture: exporters, OTel, Prometheus, Loki, Tempo, Grafana">
-                    <defs>
-                      <marker id="mon-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#343A40"/>
-                      </marker>
-                    </defs>
-
-                    <!-- Background -->
-                    <rect width="800" height="680" fill="#FFFFFF"/>
-
-                    <!-- === 3-Node RKE2 Cluster (top zone) === -->
-                    <rect x="15" y="8" width="770" height="30" rx="4" fill="#E8EEF8" stroke="#527FFF" stroke-width="1" stroke-dasharray="6 3"/>
-                    <text x="400" y="27" text-anchor="middle" fill="#527FFF" font-size="9" font-family="IBM Plex Sans" font-weight="600">3-Node RKE2 Cluster</text>
-
-                    <!-- === Collection Tier: 16 Exporters === -->
-                    <rect x="15" y="48" width="770" height="134" rx="6" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="35" y="66" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">Collection Tier -- 16 Exporters</text>
-
-                    <!-- Row 1 -->
-                    <rect x="28" y="76" width="95" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="75" y="91" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">node-exporter</text>
-                    <rect x="128" y="76" width="95" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="175" y="91" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">node-exporter</text>
-                    <rect x="228" y="76" width="95" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="275" y="91" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">node-exporter</text>
-                    <text x="336" y="91" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">x3</text>
-                    <rect x="370" y="76" width="110" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="425" y="91" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">kube-state-metrics</text>
-                    <rect x="486" y="76" width="80" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="526" y="91" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">blackbox</text>
-                    <rect x="572" y="76" width="90" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="617" y="91" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">pushgateway</text>
-
-                    <!-- Row 2 -->
-                    <rect x="28" y="104" width="62" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="59" y="119" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">postgres</text>
-                    <rect x="94" y="104" width="62" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="125" y="119" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">postgres</text>
-                    <rect x="160" y="104" width="62" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="191" y="119" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">postgres</text>
-                    <rect x="226" y="104" width="62" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="257" y="119" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">postgres</text>
-                    <text x="298" y="119" fill="#6C757D" font-size="6.5" font-family="IBM Plex Sans">x4</text>
-                    <rect x="320" y="104" width="62" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="351" y="119" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">kafka</text>
-                    <rect x="386" y="104" width="62" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="417" y="119" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">kafka</text>
-                    <text x="458" y="119" fill="#6C757D" font-size="6.5" font-family="IBM Plex Sans">x2</text>
-                    <rect x="480" y="104" width="62" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="511" y="119" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">mysql</text>
-                    <rect x="548" y="104" width="75" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="585" y="119" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">opensearch</text>
-                    <rect x="627" y="104" width="75" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="664" y="119" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">opensearch</text>
-
-                    <!-- Row 3 -->
-                    <rect x="28" y="132" width="52" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="54" y="147" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">redis</text>
-                    <rect x="84" y="132" width="52" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="110" y="147" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">redis</text>
-                    <rect x="140" y="132" width="52" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="166" y="147" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">redis</text>
-                    <rect x="196" y="132" width="52" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="222" y="147" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">redis</text>
-                    <rect x="252" y="132" width="52" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="278" y="147" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">redis</text>
-                    <text x="314" y="147" fill="#6C757D" font-size="6.5" font-family="IBM Plex Sans">x5</text>
-                    <rect x="340" y="132" width="62" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="371" y="147" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">celery</text>
-                    <rect x="406" y="132" width="62" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="437" y="147" text-anchor="middle" fill="#232F3E" font-size="6.5" font-family="IBM Plex Sans">celery</text>
-                    <text x="478" y="147" fill="#6C757D" font-size="6.5" font-family="IBM Plex Sans">x2</text>
-
-                    <!-- Arrow: exporters -> OTel -->
-                    <line x1="400" y1="182" x2="400" y2="200" stroke="#343A40" stroke-width="1" marker-end="url(#mon-arrow)"/>
-
-                    <!-- === OTel Collector row === -->
-                    <rect x="15" y="200" width="770" height="46" rx="6" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="35" y="218" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">OTel Collector DaemonSet</text>
-                    <rect x="260" y="210" width="110" height="26" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="315" y="227" text-anchor="middle" fill="#232F3E" font-size="8" font-family="IBM Plex Sans">OTel Agent 1</text>
-                    <rect x="380" y="210" width="110" height="26" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="435" y="227" text-anchor="middle" fill="#232F3E" font-size="8" font-family="IBM Plex Sans">OTel Agent 2</text>
-                    <rect x="500" y="210" width="110" height="26" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="555" y="227" text-anchor="middle" fill="#232F3E" font-size="8" font-family="IBM Plex Sans">OTel Agent 3</text>
-
-                    <!-- === Three Pipeline Columns === -->
-
-                    <!-- METRICS column -->
-                    <rect x="15" y="260" width="250" height="240" rx="6" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="140" y="278" text-anchor="middle" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">METRICS</text>
-
-                    <!-- Prometheus -->
-                    <rect x="30" y="288" width="220" height="44" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="48" cy="310" r="5" fill="#E6522C"/>
-                    <text x="62" y="306" fill="#232F3E" font-size="10" font-family="IBM Plex Sans" font-weight="500">Prometheus v3.10</text>
-                    <text x="62" y="320" fill="#6C757D" font-size="8" font-family="IBM Plex Sans">34 alerting rules</text>
-
-                    <line x1="140" y1="332" x2="140" y2="348" stroke="#343A40" stroke-width="1" marker-end="url(#mon-arrow)"/>
-                    <text x="152" y="344" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">alerts</text>
-
-                    <!-- Alertmanager -->
-                    <rect x="30" y="350" width="220" height="38" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="48" cy="369" r="5" fill="#E6522C"/>
-                    <text x="62" y="365" fill="#232F3E" font-size="9.5" font-family="IBM Plex Sans" font-weight="500">Alertmanager v0.31</text>
-                    <text x="62" y="379" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">routing · grouping · dedup</text>
-
-                    <line x1="95" y1="388" x2="95" y2="410" stroke="#343A40" stroke-width="1" marker-end="url(#mon-arrow)"/>
-                    <line x1="185" y1="388" x2="185" y2="410" stroke="#343A40" stroke-width="1" marker-end="url(#mon-arrow)"/>
-
-                    <!-- Email / Slack -->
-                    <rect x="30" y="412" width="100" height="26" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="80" y="429" text-anchor="middle" fill="#232F3E" font-size="9" font-family="IBM Plex Sans">Email</text>
-                    <rect x="140" y="412" width="100" height="26" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="190" y="429" text-anchor="middle" fill="#232F3E" font-size="9" font-family="IBM Plex Sans">Slack</text>
-
-                    <!-- Arrow from OTel to Metrics -->
-                    <line x1="140" y1="246" x2="140" y2="286" stroke="#343A40" stroke-width="1" marker-end="url(#mon-arrow)"/>
-                    <text x="150" y="270" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">metrics</text>
-
-                    <!-- LOGS column -->
-                    <rect x="275" y="260" width="250" height="240" rx="6" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="400" y="278" text-anchor="middle" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">LOGS</text>
-
-                    <!-- Promtail -->
-                    <rect x="290" y="288" width="220" height="38" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="308" cy="307" r="5" fill="#F46800"/>
-                    <text x="322" y="304" fill="#232F3E" font-size="9.5" font-family="IBM Plex Sans" font-weight="500">Promtail DaemonSet</text>
-                    <text x="322" y="318" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">x3 nodes</text>
-
-                    <line x1="400" y1="326" x2="400" y2="342" stroke="#343A40" stroke-width="1" marker-end="url(#mon-arrow)"/>
-                    <text x="412" y="338" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">logs</text>
-
-                    <!-- Loki -->
-                    <rect x="290" y="344" width="220" height="44" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="308" cy="366" r="5" fill="#F46800"/>
-                    <text x="322" y="362" fill="#232F3E" font-size="10" font-family="IBM Plex Sans" font-weight="500">Loki</text>
-                    <text x="322" y="378" fill="#6C757D" font-size="8" font-family="IBM Plex Sans">2 replicas · log storage</text>
-
-                    <!-- Arrow from OTel to Logs -->
-                    <line x1="400" y1="246" x2="400" y2="286" stroke="#343A40" stroke-width="1" marker-end="url(#mon-arrow)"/>
-                    <text x="410" y="270" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">logs</text>
-
-                    <!-- TRACES column -->
-                    <rect x="535" y="260" width="250" height="240" rx="6" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="660" y="278" text-anchor="middle" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">TRACES</text>
-
-                    <!-- Tempo Distributed -->
-                    <rect x="550" y="288" width="220" height="38" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="568" cy="307" r="5" fill="#6F42C1"/>
-                    <text x="582" y="304" fill="#232F3E" font-size="10" font-family="IBM Plex Sans" font-weight="500">Tempo Distributed</text>
-                    <text x="582" y="318" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">5 components</text>
-
-                    <!-- Tempo components -->
-                    <rect x="550" y="336" width="85" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="592" y="351" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">distributor</text>
-                    <rect x="640" y="336" width="72" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="676" y="351" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">ingester</text>
-                    <rect x="716" y="336" width="60" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="746" y="351" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">compactor</text>
-                    <rect x="550" y="364" width="72" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="586" y="379" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">querier</text>
-                    <rect x="626" y="364" width="102" height="22" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="677" y="379" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">query-frontend</text>
-
-                    <!-- Arrow from OTel to Traces -->
-                    <line x1="660" y1="246" x2="660" y2="286" stroke="#343A40" stroke-width="1" marker-end="url(#mon-arrow)"/>
-                    <text x="670" y="270" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">traces</text>
-
-                    <!-- === Grafana (bottom) === -->
-                    <rect x="15" y="515" width="770" height="120" rx="6" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="35" y="535" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">Visualization</text>
-
-                    <!-- Grafana box -->
-                    <rect x="30" y="542" width="180" height="46" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="48" cy="565" r="6" fill="#F46800"/>
-                    <text x="64" y="560" fill="#232F3E" font-size="12" font-family="IBM Plex Sans" font-weight="600">Grafana</text>
-                    <text x="64" y="576" fill="#6C757D" font-size="8" font-family="IBM Plex Sans">4 datasources</text>
-
-                    <!-- 4 datasource boxes -->
-                    <rect x="230" y="542" width="100" height="24" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="280" y="558" text-anchor="middle" fill="#232F3E" font-size="7.5" font-family="IBM Plex Sans">Prometheus</text>
-                    <rect x="340" y="542" width="110" height="24" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="395" y="558" text-anchor="middle" fill="#232F3E" font-size="7.5" font-family="IBM Plex Sans">Alertmanager</text>
-                    <rect x="460" y="542" width="80" height="24" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="500" y="558" text-anchor="middle" fill="#232F3E" font-size="7.5" font-family="IBM Plex Sans">Loki</text>
-                    <rect x="550" y="542" width="80" height="24" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="590" y="558" text-anchor="middle" fill="#232F3E" font-size="7.5" font-family="IBM Plex Sans">Tempo</text>
-
-                    <!-- Lines from Grafana to datasources -->
-                    <line x1="210" y1="556" x2="228" y2="554" stroke="#6C757D" stroke-width="1"/>
-                    <line x1="210" y1="560" x2="338" y2="554" stroke="#6C757D" stroke-width="0.5" stroke-dasharray="3 2"/>
-                    <line x1="210" y1="564" x2="458" y2="554" stroke="#6C757D" stroke-width="0.5" stroke-dasharray="3 2"/>
-                    <line x1="210" y1="568" x2="548" y2="554" stroke="#6C757D" stroke-width="0.5" stroke-dasharray="3 2"/>
-
-                    <!-- Dashboard folders -->
-                    <text x="230" y="590" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Dashboard folders:</text>
-                    <rect x="350" y="578" width="72" height="20" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="386" y="592" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">Default</text>
-                    <rect x="428" y="578" width="82" height="20" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="469" y="592" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">Kubernetes</text>
-                    <rect x="516" y="578" width="82" height="20" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="557" y="592" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">Databases</text>
-                    <rect x="604" y="578" width="52" height="20" rx="3" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="630" y="592" text-anchor="middle" fill="#232F3E" font-size="7" font-family="IBM Plex Sans">SLO</text>
-
-                    <!-- Arrows: pipelines -> Grafana -->
-                    <line x1="140" y1="450" x2="120" y2="540" stroke="#343A40" stroke-width="1" marker-end="url(#mon-arrow)"/>
-                    <text x="108" y="498" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">metrics</text>
-                    <line x1="400" y1="395" x2="260" y2="540" stroke="#343A40" stroke-width="0.75" stroke-dasharray="4 2" marker-end="url(#mon-arrow)"/>
-                    <text x="310" y="472" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">logs</text>
-                    <line x1="660" y1="395" x2="380" y2="540" stroke="#343A40" stroke-width="0.75" stroke-dasharray="4 2" marker-end="url(#mon-arrow)"/>
-                    <text x="530" y="466" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">traces</text>
-                  </svg>
-                </div>
-                <div class="case-study-stack t-mono">RKE2 · Rancher · Istio · Keycloak · XCP-ng · WireGuard · OpenG2P · Helm · Prometheus · Alertmanager · Grafana · Loki · Tempo · OTel · Promtail</div>
+                <div class="case-study-stack t-mono">RKE2 · Rancher · Istio · Keycloak · XCP-ng · WireGuard · OpenG2P · Helm</div>
               </div>
             </details>
           </article>
@@ -610,147 +216,6 @@ import Base from '../layouts/Base.astro';
                 <p>Designed AWS Lambda (Python 3.12) architecture serving REST APIs via FastAPI + Mangum, handling synchronous HTTP traffic and asynchronous job processing across dev/prod environments. Built containerized Lambda deployments using ECR with automated Docker builds and semantic version tagging.</p>
                 <p>Built end-to-end GitHub Actions pipeline with OIDC federation to AWS — zero long-lived credentials — automated testing, Docker build/push to ECR, Lambda deployment, and post-deploy migration triggers. Managed PostgreSQL (RDS) with PostGIS for geospatial queries, Alembic migrations with advisory locking.</p>
                 <p>Implemented SQS-driven async job processing with batch item failure reporting. Integrated OpenTelemetry distributed tracing with OTLP HTTP exporter and AWS X-Ray propagation. Implemented JWT authentication, role-based access control, and security headers middleware.</p>
-                <!-- WeTruck Architecture Diagram -->
-                <div class="diagram-placeholder" aria-label="WeTruck serverless AWS architecture">
-                  <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Serverless AWS architecture with OIDC federation, Lambda, SQS, and RDS">
-                    <defs>
-                      <marker id="wt-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#343A40"/>
-                      </marker>
-                    </defs>
-
-                    <!-- Background -->
-                    <rect width="800" height="400" fill="#FFFFFF"/>
-
-                    <!-- === CI/CD Pipeline (top zone, dashed) === -->
-                    <rect x="15" y="8" width="770" height="72" rx="6" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1" stroke-dasharray="6 3"/>
-                    <text x="35" y="24" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">CI/CD</text>
-
-                    <!-- GitHub -->
-                    <rect x="30" y="32" width="80" height="36" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="46" cy="50" r="5" fill="#24292E"/>
-                    <text x="58" y="46" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">GitHub</text>
-                    <text x="58" y="58" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">source</text>
-
-                    <line x1="110" y1="50" x2="130" y2="50" stroke="#343A40" stroke-width="1" marker-end="url(#wt-arrow)"/>
-
-                    <!-- GitHub Actions -->
-                    <rect x="132" y="32" width="115" height="36" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="148" cy="50" r="5" fill="#2088FF"/>
-                    <text x="160" y="46" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">GitHub Actions</text>
-                    <text x="160" y="58" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">OIDC</text>
-
-                    <line x1="247" y1="50" x2="267" y2="50" stroke="#343A40" stroke-width="1" marker-end="url(#wt-arrow)"/>
-                    <text x="257" y="44" text-anchor="middle" fill="#6C757D" font-size="6.5" font-family="IBM Plex Sans">OIDC</text>
-
-                    <!-- AWS STS -->
-                    <rect x="269" y="32" width="80" height="36" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="285" cy="50" r="5" fill="#FF9900"/>
-                    <text x="297" y="46" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">AWS STS</text>
-                    <text x="297" y="58" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">assume role</text>
-
-                    <line x1="349" y1="50" x2="369" y2="50" stroke="#343A40" stroke-width="1" marker-end="url(#wt-arrow)"/>
-
-                    <!-- ECR -->
-                    <rect x="371" y="32" width="68" height="36" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="387" cy="50" r="5" fill="#FF9900"/>
-                    <text x="399" y="54" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">ECR</text>
-
-                    <line x1="439" y1="50" x2="459" y2="50" stroke="#343A40" stroke-width="1" marker-end="url(#wt-arrow)"/>
-                    <text x="449" y="44" text-anchor="middle" fill="#6C757D" font-size="6.5" font-family="IBM Plex Sans">deploy</text>
-
-                    <!-- Lambda Deploy -->
-                    <rect x="461" y="32" width="105" height="36" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="477" cy="50" r="5" fill="#FF9900"/>
-                    <text x="489" y="46" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">Lambda Deploy</text>
-                    <text x="489" y="58" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">Python 3.12</text>
-
-                    <!-- Zero long-lived credentials badge -->
-                    <rect x="640" y="34" width="130" height="32" rx="4" fill="#E8F4E8" stroke="#248814" stroke-width="1"/>
-                    <text x="705" y="54" text-anchor="middle" fill="#248814" font-size="8.5" font-family="IBM Plex Sans" font-weight="600">Zero long-lived credentials</text>
-
-                    <!-- === AWS Cloud (middle zone, orange dashed) === -->
-                    <rect x="15" y="92" width="770" height="166" rx="6" fill="#FFF8F0" stroke="#FF9900" stroke-width="1" stroke-dasharray="6 3"/>
-                    <text x="35" y="110" fill="#FF9900" font-size="9" font-family="IBM Plex Sans" font-weight="600">AWS Cloud</text>
-
-                    <!-- API Gateway -->
-                    <rect x="30" y="120" width="105" height="54" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="46" cy="140" r="5" fill="#FF9900"/>
-                    <text x="58" y="138" fill="#232F3E" font-size="9.5" font-family="IBM Plex Sans" font-weight="500">API Gateway</text>
-                    <text x="58" y="152" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">REST · JWT HS256</text>
-
-                    <line x1="135" y1="147" x2="157" y2="147" stroke="#343A40" stroke-width="1" marker-end="url(#wt-arrow)"/>
-                    <text x="146" y="140" text-anchor="middle" fill="#6C757D" font-size="6.5" font-family="IBM Plex Sans">HTTP</text>
-
-                    <!-- Lambda -->
-                    <rect x="159" y="120" width="140" height="54" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1.5"/>
-                    <circle cx="175" cy="140" r="5" fill="#FF9900"/>
-                    <text x="189" y="137" fill="#232F3E" font-size="10" font-family="IBM Plex Sans" font-weight="600">Lambda</text>
-                    <text x="189" y="150" fill="#6C757D" font-size="8" font-family="IBM Plex Sans">FastAPI + Mangum</text>
-                    <text x="189" y="163" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Python 3.12</text>
-
-                    <line x1="299" y1="147" x2="321" y2="147" stroke="#343A40" stroke-width="1" marker-end="url(#wt-arrow)"/>
-                    <text x="310" y="140" text-anchor="middle" fill="#6C757D" font-size="6.5" font-family="IBM Plex Sans">async</text>
-
-                    <!-- SQS -->
-                    <rect x="323" y="120" width="125" height="54" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="339" cy="140" r="5" fill="#FF4F8B"/>
-                    <text x="353" y="137" fill="#232F3E" font-size="9.5" font-family="IBM Plex Sans" font-weight="500">SQS</text>
-                    <text x="353" y="150" fill="#6C757D" font-size="8" font-family="IBM Plex Sans">11+ job types</text>
-                    <text x="353" y="163" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">batch failures</text>
-
-                    <!-- Data services (right column) -->
-                    <!-- RDS PostgreSQL -->
-                    <rect x="480" y="118" width="145" height="46" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="496" cy="141" r="5" fill="#3B48CC"/>
-                    <text x="508" y="137" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">RDS PostgreSQL</text>
-                    <text x="508" y="150" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">PostGIS · Alembic</text>
-
-                    <!-- Redis/Valkey -->
-                    <rect x="635" y="118" width="70" height="46" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="651" cy="141" r="5" fill="#DC382D"/>
-                    <text x="663" y="137" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">Redis</text>
-                    <text x="663" y="150" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Valkey</text>
-
-                    <!-- S3 -->
-                    <rect x="715" y="118" width="56" height="46" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="731" cy="141" r="5" fill="#3F8624"/>
-                    <text x="743" y="145" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">S3</text>
-
-                    <!-- Arrow: Lambda -> Data -->
-                    <line x1="448" y1="147" x2="478" y2="141" stroke="#343A40" stroke-width="1" marker-end="url(#wt-arrow)"/>
-                    <text x="463" y="138" text-anchor="middle" fill="#6C757D" font-size="6.5" font-family="IBM Plex Sans">queries</text>
-
-                    <!-- Secrets Manager -->
-                    <rect x="480" y="174" width="140" height="32" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="496" cy="190" r="5" fill="#DD344C"/>
-                    <text x="508" y="194" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">Secrets Manager</text>
-
-                    <!-- EventBridge -->
-                    <rect x="635" y="174" width="136" height="32" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="651" cy="190" r="5" fill="#FF4F8B"/>
-                    <text x="663" y="194" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">EventBridge</text>
-
-                    <!-- === Observability strip === -->
-                    <rect x="15" y="272" width="770" height="46" rx="6" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="35" y="290" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">Observability</text>
-
-                    <rect x="150" y="282" width="110" height="26" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="205" y="299" text-anchor="middle" fill="#232F3E" font-size="8.5" font-family="IBM Plex Sans">OpenTelemetry</text>
-                    <line x1="260" y1="295" x2="282" y2="295" stroke="#343A40" stroke-width="1" marker-end="url(#wt-arrow)"/>
-                    <text x="271" y="289" text-anchor="middle" fill="#6C757D" font-size="6.5" font-family="IBM Plex Sans">traces</text>
-                    <rect x="284" y="282" width="90" height="26" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="329" y="299" text-anchor="middle" fill="#232F3E" font-size="8.5" font-family="IBM Plex Sans">OTLP HTTP</text>
-                    <line x1="374" y1="295" x2="396" y2="295" stroke="#343A40" stroke-width="1" marker-end="url(#wt-arrow)"/>
-                    <rect x="398" y="282" width="105" height="26" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="450" y="299" text-anchor="middle" fill="#232F3E" font-size="8.5" font-family="IBM Plex Sans">X-Ray</text>
-
-                    <!-- === Security annotation === -->
-                    <rect x="15" y="330" width="770" height="32" rx="4" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="35" y="350" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">Security</text>
-                    <text x="400" y="350" text-anchor="middle" fill="#6C757D" font-size="8" font-family="IBM Plex Sans">HSTS · CSP · IAM OIDC · RBAC · JWT HS256</text>
-                  </svg>
-                </div>
                 <div class="case-study-stack t-mono">Python · FastAPI · AWS Lambda · ECR · RDS PostgreSQL · PostGIS · SQS · S3 · GitHub Actions · OIDC · OpenTelemetry · Docker</div>
               </div>
             </details>
@@ -785,145 +250,6 @@ import Base from '../layouts/Base.astro';
               <div class="case-study-body">
                 <p>Deployed Docker and Kubernetes clusters with resource limits, HPA, and load balancing for mobile banking, USSD, and REST microservices on WildFly and Nginx. Implemented Jenkins pipelines automating the full lifecycle for Maven-based Java applications.</p>
                 <p>Managed Proxmox clusters for HA virtualization and AWS infrastructure. Configured ActiveMQ message brokering and MySQL tuning for banking workloads. Integrated ELK stack for centralized logging and Prometheus/Grafana for resource monitoring. Implemented Keycloak SSO, Heartbeat HA failover, and comprehensive security policies across production banking environments.</p>
-                <!-- Banking Architecture Diagram -->
-                <div class="diagram-placeholder" aria-label="Multi-bank mobile banking HA architecture">
-                  <svg viewBox="0 0 800 430" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Multi-bank HA banking infrastructure with Keycloak SSO and Heartbeat failover">
-                    <defs>
-                      <marker id="bk-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#343A40"/>
-                      </marker>
-                    </defs>
-
-                    <!-- Background -->
-                    <rect width="800" height="430" fill="#FFFFFF"/>
-
-                    <!-- === 3 Bank Clients (top) === -->
-                    <rect x="140" y="10" width="130" height="38" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="158" cy="29" r="5" fill="#1E88E5"/>
-                    <text x="170" y="33" fill="#232F3E" font-size="9.5" font-family="IBM Plex Sans" font-weight="500">Siinqee</text>
-
-                    <rect x="335" y="10" width="130" height="38" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="353" cy="29" r="5" fill="#43A047"/>
-                    <text x="365" y="33" fill="#232F3E" font-size="9.5" font-family="IBM Plex Sans" font-weight="500">Hijra</text>
-
-                    <rect x="530" y="10" width="130" height="38" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="548" cy="29" r="5" fill="#E53935"/>
-                    <text x="560" y="33" fill="#232F3E" font-size="9.5" font-family="IBM Plex Sans" font-weight="500">Wegagen</text>
-
-                    <!-- Arrows down to Nginx -->
-                    <line x1="205" y1="48" x2="340" y2="62" stroke="#343A40" stroke-width="1" marker-end="url(#bk-arrow)"/>
-                    <line x1="400" y1="48" x2="400" y2="62" stroke="#343A40" stroke-width="1" marker-end="url(#bk-arrow)"/>
-                    <line x1="595" y1="48" x2="460" y2="62" stroke="#343A40" stroke-width="1" marker-end="url(#bk-arrow)"/>
-
-                    <!-- === Nginx LB === -->
-                    <rect x="260" y="60" width="280" height="34" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="278" cy="77" r="5" fill="#009639"/>
-                    <text x="290" y="81" fill="#232F3E" font-size="10" font-family="IBM Plex Sans" font-weight="500">Nginx Load Balancer</text>
-
-                    <!-- Arrow LB -> K8s -->
-                    <line x1="400" y1="94" x2="400" y2="112" stroke="#343A40" stroke-width="1" marker-end="url(#bk-arrow)"/>
-                    <text x="412" y="106" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">HTTP</text>
-
-                    <!-- === Kubernetes Cluster (blue dashed) === -->
-                    <rect x="15" y="112" width="560" height="108" rx="6" fill="#E8EEF8" stroke="#527FFF" stroke-width="1" stroke-dasharray="6 3"/>
-                    <text x="35" y="130" fill="#527FFF" font-size="9" font-family="IBM Plex Sans" font-weight="600">Kubernetes Cluster</text>
-
-                    <!-- WildFly USSD -->
-                    <rect x="30" y="140" width="120" height="62" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="46" cy="158" r="5" fill="#E53935"/>
-                    <text x="58" y="156" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">WildFly</text>
-                    <text x="58" y="170" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">USSD services</text>
-                    <text x="58" y="192" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">resource limits</text>
-
-                    <!-- WildFly REST -->
-                    <rect x="160" y="140" width="120" height="62" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="176" cy="158" r="5" fill="#E53935"/>
-                    <text x="188" y="156" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">WildFly</text>
-                    <text x="188" y="170" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">REST APIs</text>
-                    <text x="188" y="192" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">microservices</text>
-
-                    <!-- WildFly Mobile -->
-                    <rect x="290" y="140" width="130" height="62" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="306" cy="158" r="5" fill="#E53935"/>
-                    <text x="318" y="156" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">WildFly</text>
-                    <text x="318" y="170" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Mobile Banking</text>
-                    <text x="318" y="192" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">HPA scaling</text>
-
-                    <!-- ActiveMQ -->
-                    <rect x="430" y="140" width="130" height="62" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="446" cy="158" r="5" fill="#D22128"/>
-                    <text x="458" y="156" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">ActiveMQ</text>
-                    <text x="458" y="170" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Message broker</text>
-                    <text x="458" y="192" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">async messaging</text>
-
-                    <!-- === Keycloak SSO + Heartbeat HA (right zone) === -->
-                    <rect x="595" y="112" width="190" height="108" rx="6" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="615" y="130" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">Identity / HA</text>
-
-                    <rect x="610" y="140" width="160" height="62" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="626" cy="158" r="5" fill="#4D4D4D"/>
-                    <text x="638" y="156" fill="#232F3E" font-size="10" font-family="IBM Plex Sans" font-weight="500">Keycloak SSO</text>
-                    <text x="638" y="170" fill="#6C757D" font-size="8" font-family="IBM Plex Sans">Cross-bank federation</text>
-                    <text x="638" y="192" fill="#6C757D" font-size="7.5" font-family="IBM Plex Sans">Heartbeat HA failover</text>
-
-                    <!-- Arrow K8s -> Keycloak -->
-                    <line x1="560" y1="166" x2="608" y2="166" stroke="#343A40" stroke-width="1" marker-end="url(#bk-arrow)"/>
-                    <text x="584" y="160" text-anchor="middle" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">auth</text>
-
-                    <!-- === Data Tier === -->
-                    <rect x="15" y="234" width="380" height="60" rx="6" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="35" y="252" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">Data Tier</text>
-
-                    <!-- MySQL -->
-                    <rect x="30" y="258" width="160" height="28" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="46" cy="272" r="5" fill="#4479A1"/>
-                    <text x="58" y="276" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">MySQL (tuned)</text>
-
-                    <!-- PostgreSQL -->
-                    <rect x="200" y="258" width="160" height="28" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="216" cy="272" r="5" fill="#336791"/>
-                    <text x="228" y="276" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="500">PostgreSQL</text>
-
-                    <!-- Arrow K8s -> Data -->
-                    <line x1="200" y1="220" x2="200" y2="256" stroke="#343A40" stroke-width="1" marker-end="url(#bk-arrow)"/>
-                    <text x="212" y="242" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">queries</text>
-
-                    <!-- === Monitoring === -->
-                    <rect x="415" y="234" width="370" height="60" rx="6" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="435" y="252" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">Monitoring</text>
-
-                    <rect x="430" y="258" width="90" height="28" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="446" cy="272" r="5" fill="#00BCD4"/>
-                    <text x="458" y="276" fill="#232F3E" font-size="9" font-family="IBM Plex Sans">ELK Stack</text>
-
-                    <rect x="530" y="258" width="105" height="28" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="546" cy="272" r="5" fill="#E6522C"/>
-                    <text x="558" y="276" fill="#232F3E" font-size="9" font-family="IBM Plex Sans">Prometheus</text>
-
-                    <rect x="645" y="258" width="90" height="28" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="661" cy="272" r="5" fill="#F46800"/>
-                    <text x="673" y="276" fill="#232F3E" font-size="9" font-family="IBM Plex Sans">Grafana</text>
-
-                    <!-- Arrow K8s -> Monitoring -->
-                    <line x1="580" y1="220" x2="580" y2="256" stroke="#343A40" stroke-width="1" marker-end="url(#bk-arrow)"/>
-                    <text x="592" y="242" fill="#6C757D" font-size="7" font-family="IBM Plex Sans">logs/metrics</text>
-
-                    <!-- === Infrastructure strip === -->
-                    <rect x="15" y="308" width="770" height="32" rx="4" fill="#F0F0F0" stroke="#666666" stroke-width="1" stroke-dasharray="6 3"/>
-                    <text x="35" y="328" fill="#666666" font-size="9" font-family="IBM Plex Sans" font-weight="600">Infrastructure</text>
-                    <text x="160" y="328" fill="#6C757D" font-size="8.5" font-family="IBM Plex Sans">Proxmox HA + AWS</text>
-
-                    <!-- === CI/CD strip === -->
-                    <rect x="15" y="352" width="770" height="36" rx="4" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1"/>
-                    <text x="35" y="374" fill="#232F3E" font-size="9" font-family="IBM Plex Sans" font-weight="600">CI/CD</text>
-
-                    <rect x="100" y="358" width="90" height="24" rx="4" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="1"/>
-                    <circle cx="114" cy="370" r="5" fill="#D33833"/>
-                    <text x="126" y="374" fill="#232F3E" font-size="9" font-family="IBM Plex Sans">Jenkins</text>
-
-                    <text x="205" y="374" fill="#6C757D" font-size="8" font-family="IBM Plex Sans">Maven lifecycle · build --> test --> env-specific deploy</text>
-                  </svg>
-                </div>
                 <div class="case-study-stack t-mono">Docker · Kubernetes · Jenkins · Proxmox · AWS · Nginx · WildFly · ActiveMQ · MySQL · ELK · Keycloak</div>
               </div>
             </details>
@@ -1412,16 +738,17 @@ import Base from '../layouts/Base.astro';
 
   .diagram-placeholder {
     margin: var(--s-4) 0;
-    background: #FFFFFF;
-    border: 1px solid #DEE2E6;
-    border-radius: 8px;
-    padding: 1rem;
+    background: var(--c-bg);
+    border: 1px solid var(--c-border-subtle);
+    border-radius: 4px;
+    padding: var(--s-4);
     overflow-x: auto;
   }
 
   .diagram-placeholder svg {
     width: 100%;
     height: auto;
+    min-width: 500px;
   }
 
   /* Secondary studies */
