@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-const buildDate = new Date().toISOString().slice(0, 10);
 ---
 <Base>
   <!-- ═══════════════════════════════════════════
@@ -607,11 +606,6 @@ const buildDate = new Date().toISOString().slice(0, 10);
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-inner">
       <p class="t-small">Teddy Abera Danamo · Addis Ababa</p>
-      <p class="t-mono" style="font-size: 0.75rem; color: var(--c-text-tertiary);">
-        Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a> ·
-        <a href="https://github.com/Tedion/teddy-portfolio" target="_blank" rel="noopener noreferrer">Source</a> ·
-        Last deploy: {buildDate} · v1.0.0
-      </p>
     </div>
   </footer>
 </Base>
